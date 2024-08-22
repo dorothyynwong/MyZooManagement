@@ -5,7 +5,14 @@ namespace ZooManagement.Repositories
 {
     public interface IAnimalsRepo
     {
-        public Animal GetAnimalById(int id);
+        
+        Animal GetAnimalById(int id);
+        List<Animal> GetAnimalBySpeciesID(int id);
+        Animal Create(CreateAnimalRequest animal);
+
+        IEnumerable<Animal> Search(AnimalSearchRequest search);
+
+        int Count(AnimalSearchRequest search);
     }
 
     public class AnimalsRepo : IAnimalsRepo
@@ -21,6 +28,26 @@ namespace ZooManagement.Repositories
         {
             return _context.Animals
                 .Single(animal => animal.Id == id);
+        }
+
+        public List<Animal> GetAnimalBySpeciesID(int id)
+        {
+            return _context.Animals
+                .Where(animal => animal.SpeciesId == id).ToList();
+        }
+
+        public IEnumerable<Animal> Search(AnimalSearchRequest search)
+        {
+            return _context.Animals
+                .Where(p => search.SpeciesId == null || p.SpeciesId == search.SpeciesId)
+                .Skip((search.Page - 1) * search.PageSize)
+                .Take(search.PageSize);
+        }
+
+        public int Count(AnimalSearchRequest search)
+        {
+            return _context.Animals
+                .Count(p => search.SpeciesId == null || p.SpeciesId == search.SpeciesId);
         }
 
         public Animal Create(CreateAnimalRequest animal)

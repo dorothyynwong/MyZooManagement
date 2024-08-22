@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ZooManagement.Repositories;
 
 namespace ZooManagement
 {
@@ -33,6 +34,7 @@ namespace ZooManagement
 
 
             services.AddControllers();
+            services.AddTransient<IAnimalsRepo, AnimalsRepo>();
 
             // services.AddTransient<IInteractionsRepo, InteractionsRepo>();
         }
