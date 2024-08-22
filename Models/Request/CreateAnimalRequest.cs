@@ -1,4 +1,4 @@
-using ZooManagement.Models.Database;
+using ZooManagement.Helpers;
 
 namespace ZooManagement.Models.Request
 {

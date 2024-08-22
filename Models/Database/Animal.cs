@@ -1,11 +1,7 @@
+using ZooManagement.Helpers;
+
 namespace ZooManagement.Models.Database
 {
-    public enum Sex
-    {
-        Male,
-        Female
-    }
-
     public class Animal
     {
         public int Id { get; set; }

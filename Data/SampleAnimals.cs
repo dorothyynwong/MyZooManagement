@@ -1,4 +1,5 @@
 using ZooManagement.Models.Database;
+using ZooManagement.Helpers;
 
 namespace ZooManagement.Data
 {
@@ -118,14 +119,12 @@ namespace ZooManagement.Data
 
         private static Animal CreateRandomAnimal(int index)
         {
-            int sexNo = int.Parse(Data[index][3]);
-
             return new Animal
             {
                 Id = int.Parse(Data[index][0]),
                 Name = Data[index][1],
                 SpeciesId = int.Parse(Data[index][2]),
-                Sex = sexNo == 1 ? Sex.Male : Sex.Female,
+                Sex = (Sex)int.Parse(Data[index][3]),
                 DateOfBirth = DateTime.Parse(Data[index][4]),
                 DateCameToZoo = DateTime.Parse(Data[index][5]),
             };
