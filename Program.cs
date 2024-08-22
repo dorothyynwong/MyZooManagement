@@ -1,44 +1,47 @@
-var builder = WebApplication.CreateBuilder(args);
+using ZooManagement.Data;
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+namespace ZooManagement
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            var host = CreateHostBuilder(args).Build();
 
-app.UseHttpsRedirection();
+            CreateDbIfNotExists(host);
+            host.Run();
+        }
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+        private static void CreateDbIfNotExists(IHost host)
+        {
+            using var scope = host.Services.CreateScope();
+            var services = scope.ServiceProvider;
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+            var context = services.GetRequiredService<ZooManagementDbContext>();
+            context.Database.EnsureCreated();
 
-app.Run();
+            if (!context.Animals.Any())
+            {
+                var animal = SampleAnimals.GetAnimals();
+                context.Animals.AddRange(animal);
+                context.SaveChanges();
+            }
+            if (!context.Classifications.Any())
+            {
+                var classification = SampleClassification.GetClassifications();
+                context.Classifications.AddRange(classification);
+                context.SaveChanges();
+            }
+            if (!context.Species.Any())
+            {
+                var species = SampleSpecies.GetSpecies();
+                context.Species.AddRange(species);
+                context.SaveChanges();
+            }
+        }
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+    }
 }
