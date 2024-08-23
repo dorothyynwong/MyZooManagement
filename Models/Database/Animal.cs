@@ -10,5 +10,6 @@ namespace ZooManagement.Models.Database
         public Sex Sex { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DateTime DateCameToZoo { get; set; }
+        public int EnclosureId { get; set; }
     }
 }
