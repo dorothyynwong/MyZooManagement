@@ -6,7 +6,7 @@ using ZooManagement.Repositories;
 namespace ZooManagement.Controllers
 {
     [ApiController]
-    [Route("/animals")]
+    [Route("api/[controller]")]
     public class AnimalController : ControllerBase
     {
         private readonly IAnimalsRepo _animals;
