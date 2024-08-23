@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using ZooManagement.Models.Database;
 using ZooManagement.Models.Request;
 
@@ -8,10 +6,7 @@ namespace ZooManagement.Models.Response
     
     public class FeedAnimalModel : AnimalResponse
     {
-        public FeedAnimalModel(Animal animal) : base(animal)
-        {
-        }
-
+        public FeedAnimalModel(Animal animal) : base(animal) { }
     }
 
     public class FeedModel : ListResponse<FeedAnimalModel>

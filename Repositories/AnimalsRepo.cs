@@ -7,7 +7,7 @@ namespace ZooManagement.Repositories
     {
         
         Animal GetAnimalById(int id);
-        List<Animal> GetAnimalBySpeciesID(int id);
+        
         Animal Create(CreateAnimalRequest animal);
 
         IEnumerable<Animal> Search(AnimalSearchRequest search);
@@ -28,12 +28,6 @@ namespace ZooManagement.Repositories
         {
             return _context.Animals
                 .Single(animal => animal.Id == id);
-        }
-
-        public List<Animal> GetAnimalBySpeciesID(int id)
-        {
-            return _context.Animals
-                .Where(animal => animal.SpeciesId == id).ToList();
         }
 
         public IEnumerable<Animal> Search(AnimalSearchRequest search)
