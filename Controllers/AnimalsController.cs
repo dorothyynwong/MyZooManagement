@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ZooManagement.Models.Request;
 using ZooManagement.Models.Response;
 using ZooManagement.Repositories;
+using ZooManagement.Services;
 
 namespace ZooManagement.Controllers
 {
@@ -10,10 +11,12 @@ namespace ZooManagement.Controllers
     public class AnimalController : ControllerBase
     {
         private readonly IAnimalsRepo _animals;
+        private readonly IAnimalService _animalService;
 
-        public AnimalController(IAnimalsRepo animals)
+        public AnimalController(IAnimalsRepo animals, IAnimalService animalService)
         {
             _animals = animals;
+            _animalService = animalService;
         }
 
         [HttpGet("{id}")]
@@ -39,7 +42,8 @@ namespace ZooManagement.Controllers
                 return BadRequest(ModelState);
             }
 
-            var animal = _animals.Create(newAnimal);
+            // var animal = _animals.Create(newAnimal);
+            var animal = _animalService.Create(newAnimal);
 
             var url = Url.Action("GetById", new { id = animal.Id });
             var responseViewModel = new AnimalResponse(animal);

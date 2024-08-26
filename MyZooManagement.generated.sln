@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zoomanagement", "zoomanagement.csproj", "{785CC815-4501-484D-954D-F34DFCEE59C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zoomanagement", "zoomanagement.csproj", "{A06AC08B-6F78-4342-9D69-B358941778AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{785CC815-4501-484D-954D-F34DFCEE59C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{785CC815-4501-484D-954D-F34DFCEE59C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{785CC815-4501-484D-954D-F34DFCEE59C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{785CC815-4501-484D-954D-F34DFCEE59C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A06AC08B-6F78-4342-9D69-B358941778AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A06AC08B-6F78-4342-9D69-B358941778AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A06AC08B-6F78-4342-9D69-B358941778AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A06AC08B-6F78-4342-9D69-B358941778AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {496D83B4-1814-48B8-9C4B-02DE7CD721D8}
+		SolutionGuid = {3706B6DD-FD2C-429B-8E7D-493DF9CD97BA}
 	EndGlobalSection
 EndGlobal

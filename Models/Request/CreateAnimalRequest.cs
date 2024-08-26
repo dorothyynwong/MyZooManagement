@@ -19,5 +19,7 @@ namespace ZooManagement.Models.Request
 
         [Required]
         public DateTime DateCameToZoo { get; set; }
+        [Required]
+        public int EnclosureId { get; set; }
     }
 }

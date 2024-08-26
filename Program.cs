@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ZooManagement;
 using ZooManagement.Data;
 using ZooManagement.Repositories;
+using ZooManagement.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,8 @@ builder.Services.AddControllers()
     });
 
 builder.Services.AddTransient<IAnimalsRepo, AnimalsRepo>();
+builder.Services.AddTransient<IEnclosuresRepo, EnclosuresRepo>();
+builder.Services.AddTransient<IAnimalService, AnimalService>();
 
 var app = builder.Build();
 
@@ -47,6 +50,12 @@ using (var scope = app.Services.CreateScope())
     {
         var species = SampleSpecies.GetSpecies();
         context.Species.AddRange(species);
+        context.SaveChanges();
+    }
+    if (!context.Enclosures.Any())
+    {
+        var enclosures = SampleEnclosures.GetEnclosures();
+        context.Enclosures.AddRange(enclosures);
         context.SaveChanges();
     }
 }
