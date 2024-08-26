@@ -52,7 +52,8 @@ namespace ZooManagement.Repositories
                 SpeciesId = animal.SpeciesId,
                 Sex = animal.Sex,
                 DateOfBirth = animal.DateOfBirth,
-                DateCameToZoo = animal.DateCameToZoo
+                DateCameToZoo = animal.DateCameToZoo,
+                EnclosureId = animal.EnclosureId
             });
             _context.SaveChanges();
             return insertResult.Entity;

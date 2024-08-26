@@ -10,11 +10,14 @@ namespace ZooManagement.Controllers
     [Route("api/[controller]")]
     public class AnimalController : ControllerBase
     {
+        private readonly ILogger<AnimalController> _logger;
         private readonly IAnimalsRepo _animals;
         private readonly IAnimalService _animalService;
+        
 
-        public AnimalController(IAnimalsRepo animals, IAnimalService animalService)
+        public AnimalController(ILogger<AnimalController> logger, IAnimalsRepo animals, IAnimalService animalService)
         {
+            _logger = logger;
             _animals = animals;
             _animalService = animalService;
         }
@@ -42,12 +45,23 @@ namespace ZooManagement.Controllers
                 return BadRequest(ModelState);
             }
 
-            // var animal = _animals.Create(newAnimal);
-            var animal = _animalService.Create(newAnimal);
-
-            var url = Url.Action("GetById", new { id = animal.Id });
-            var responseViewModel = new AnimalResponse(animal);
-            return Created(url, responseViewModel);
+            try
+            {
+                var animal = _animalService.Create(newAnimal);
+                var url = Url.Action("GetById", new { id = animal.Id });
+                var responseViewModel = new AnimalResponse(animal);
+                return Created(url, responseViewModel);
+            }
+            catch(InvalidOperationException ex)
+            {
+                _logger.LogWarning(ex, "Business logic error: {Message}", ex.Message);
+                return BadRequest(new ErrorResponse { StatusCode = 400, Message = "Business logic error.", Details = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error occurred.");
+                return StatusCode(500, new ErrorResponse { StatusCode = 500, Message = "An unexpected error occurred.", Details = ex.Message });
+            }
         }
     }
 }

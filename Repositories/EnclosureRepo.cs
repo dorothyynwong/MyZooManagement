@@ -5,7 +5,7 @@ namespace ZooManagement.Repositories
 {
     public interface IEnclosuresRepo
     {
-        bool IsLimitReached(int id);
+        Enclosure GetEnclosure(int id);
     }
 
     public class EnclosuresRepo : IEnclosuresRepo
@@ -17,11 +17,10 @@ namespace ZooManagement.Repositories
             _context = context;
         }
 
-        public bool IsLimitReached(int id)
-        { 
-            Enclosure enclosure = _context.Enclosures
+        public Enclosure GetEnclosure(int id)
+        {
+            return _context.Enclosures
                 .Single(enclosure => enclosure.Id == id);
-            return enclosure.MaxNumberOfAnimals > enclosure.NumberOfAnimals;
         }
     }
 }

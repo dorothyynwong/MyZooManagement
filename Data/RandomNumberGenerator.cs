@@ -13,17 +13,25 @@ namespace ZooManagement.Data
             return Random.Next(1, SampleSpecies.NumberOfSpecies + 1);
         }
 
+        public static int GetEnclosureId()
+        {
+            return Random.Next(1, SampleEnclosures.NumberOfEnclosures + 1);
+        }
+
         public static Sex GetSex()
         {
             return Random.Next(0, 2) == 0 ? Sex.Male : Sex.Female;
         }
         
 
-        public static (int, int) GetMaxAndNumberOfAnimals()
+        public static int GetMaxNumberOfAnimals()
         {
-            int max = Random.Next(1,50);
-            int noOfAnimals = Random.Next(0,max);
-            return (max , noOfAnimals);
+            return Random.Next(1,50);
+        }
+
+        public static int GetNumberOfAnimals(int maxNumberOfAnimals)
+        {
+            return Random.Next(0,maxNumberOfAnimals);
         }
     }
 }

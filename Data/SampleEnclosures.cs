@@ -16,14 +16,13 @@ namespace ZooManagement.Data
 
         private static Enclosure CreateRandomEnclosure(int index)
         {
-            (int maxNumberOfAnimals, int numberOfAnimals) = RandomNumberGenerator.GetMaxAndNumberOfAnimals();
-
+            int maxNumberOfAnimals = RandomNumberGenerator.GetMaxNumberOfAnimals();
             return new Enclosure
             {
                 Id = index+1,
                 Name = SpeciesGenerator.GetSpecies(index),
                 MaxNumberOfAnimals = maxNumberOfAnimals,
-                NumberOfAnimals = numberOfAnimals
+                NumberOfAnimals = RandomNumberGenerator.GetNumberOfAnimals(maxNumberOfAnimals)
             };
         }
     }

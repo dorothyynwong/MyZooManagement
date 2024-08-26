@@ -11,34 +11,33 @@ namespace ZooManagement.Services
 
     public class AnimalService : IAnimalService
     {
+        private readonly ILogger<AnimalService> _logger;
         private readonly IAnimalsRepo _animals;
         private readonly IEnclosuresRepo _enclosures;
 
-        public AnimalService(IAnimalsRepo animals, IEnclosuresRepo enclosures)
+        public AnimalService(ILogger<AnimalService> logger, IAnimalsRepo animals, IEnclosuresRepo enclosures)
         {
+            _logger = logger;
             _animals = animals;
             _enclosures = enclosures;
         }
 
         public Animal Create(CreateAnimalRequest animal)
         {
-            try
+            Enclosure enclosure = _enclosures.GetEnclosure(animal.EnclosureId);
+            if (enclosure == null)
             {
-                if (_enclosures.IsLimitReached(animal.EnclosureId))
-                {
-                    return _animals.Create(animal);
-                }
-                else
-                {
-                    throw new InvalidOperationException("Enclosure Limit has been reached !");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return null;
+                _logger.LogWarning("Enclosure with ID {EnclosureId} not found.", animal.EnclosureId);
+                throw new InvalidOperationException("Enclosure not found.");
             }
 
+            if (enclosure.MaxNumberOfAnimals < enclosure.NumberOfAnimals + 1)
+            {
+                _logger.LogWarning("Cannot add animal to enclosure. Enclosure ID {EnclosureId} has reached its maximum capacity.", animal.EnclosureId);
+                throw new InvalidOperationException("Maximum number of animals in the enclosure has been reached.");
+            }
+
+            return _animals.Create(animal);
         }
     }
 }

@@ -28,18 +28,16 @@ builder.Services.AddTransient<IAnimalsRepo, AnimalsRepo>();
 builder.Services.AddTransient<IEnclosuresRepo, EnclosuresRepo>();
 builder.Services.AddTransient<IAnimalService, AnimalService>();
 
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<ZooManagementDbContext>();
     context.Database.EnsureCreated();
-    if (!context.Animals.Any())
-    {
-        var animal = SampleAnimals.GetAnimals();
-        context.Animals.AddRange(animal);
-        context.SaveChanges();
-    }
+
     if (!context.Classifications.Any())
     {
         var classification = SampleClassification.GetClassifications();
@@ -57,6 +55,19 @@ using (var scope = app.Services.CreateScope())
         var enclosures = SampleEnclosures.GetEnclosures();
         context.Enclosures.AddRange(enclosures);
         context.SaveChanges();
+
+        if (!context.Animals.Any())
+        {
+            int startIndex = 0;
+            var enclosuresDB = context.Enclosures;
+            foreach(var enclosure in enclosuresDB)
+            {
+                var animal = SampleAnimals.GetAnimals(startIndex, enclosure.NumberOfAnimals, enclosure.Id);
+                context.Animals.AddRange(animal);
+                context.SaveChanges();
+                startIndex += enclosure.NumberOfAnimals;
+            }
+        }
     }
 }
 

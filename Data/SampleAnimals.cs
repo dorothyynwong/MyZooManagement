@@ -112,12 +112,12 @@ namespace ZooManagement.Data
 
         // };
 
-        public static IEnumerable<Animal> GetAnimals()
+        public static IEnumerable<Animal> GetAnimals(int startIndex, int numberOfAnimals, int enclosureId)
         {
-            return Enumerable.Range(0, NumberOfAnimals).Select(CreateRandomAnimal);
+            return Enumerable.Range(startIndex, numberOfAnimals).Select(index => CreateRandomAnimal(index, enclosureId));
         }
 
-        private static Animal CreateRandomAnimal(int index)
+        private static Animal CreateRandomAnimal(int index, int enclosureId)
         {
             return new Animal
             {
@@ -127,6 +127,8 @@ namespace ZooManagement.Data
                 Sex = RandomNumberGenerator.GetSex(),
                 DateOfBirth = DateGenerator.GetDateOfBirth(),
                 DateCameToZoo = DateGenerator.GetDateCameZoo(),
+                EnclosureId = enclosureId
+                
             };
         }
     }
