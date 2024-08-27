@@ -6,6 +6,7 @@ namespace ZooManagement.Repositories
     public interface IEnclosuresRepo
     {
         Enclosure GetEnclosure(int id);
+        Enclosure AddAnimalToEnclosure(int id);
     }
 
     public class EnclosuresRepo : IEnclosuresRepo
@@ -21,6 +22,15 @@ namespace ZooManagement.Repositories
         {
             return _context.Enclosures
                 .Single(enclosure => enclosure.Id == id);
+        }
+
+        public Enclosure AddAnimalToEnclosure(int id)
+        {
+            Enclosure enclosure = GetEnclosure(id);
+            enclosure.NumberOfAnimals++;
+            var updateResult = _context.Enclosures.Update(enclosure);
+            _context.SaveChanges();
+            return updateResult.Entity;
         }
     }
 }

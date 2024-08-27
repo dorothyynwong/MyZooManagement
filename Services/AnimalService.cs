@@ -25,6 +25,7 @@ namespace ZooManagement.Services
         public Animal Create(CreateAnimalRequest animal)
         {
             Enclosure enclosure = _enclosures.GetEnclosure(animal.EnclosureId);
+            
             if (enclosure == null)
             {
                 _logger.LogWarning("Enclosure with ID {EnclosureId} not found.", animal.EnclosureId);
@@ -35,6 +36,19 @@ namespace ZooManagement.Services
             {
                 _logger.LogWarning("Cannot add animal to enclosure. Enclosure ID {EnclosureId} has reached its maximum capacity.", animal.EnclosureId);
                 throw new InvalidOperationException("Maximum number of animals in the enclosure has been reached.");
+            }
+
+            int newNumberOfAnimals = enclosure.NumberOfAnimals + 1;
+            
+            Enclosure updatedEnclosure = _enclosures.AddAnimalToEnclosure(animal.EnclosureId);
+            if (updatedEnclosure == null)
+            {
+                throw new Exception("Failed to update enclosure or enclosure not found.");
+            }
+
+            if (updatedEnclosure.NumberOfAnimals != newNumberOfAnimals)
+            {
+                throw new Exception("Number of animals in the enclosure did not update correctly.");
             }
 
             return _animals.Create(animal);
