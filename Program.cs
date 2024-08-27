@@ -44,6 +44,7 @@ builder.Services.AddControllers()
 builder.Services.AddTransient<IAnimalsRepo, AnimalsRepo>();
 builder.Services.AddTransient<ISpeciesRepo, SpeciesRepo>();
 builder.Services.AddTransient<IEnclosuresRepo, EnclosuresRepo>();
+builder.Services.AddTransient<IZooKeepersRepo, ZooKeepersRepo>();
 builder.Services.AddTransient<IAnimalService, AnimalService>();
 
 
