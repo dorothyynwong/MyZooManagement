@@ -1,5 +1,6 @@
 using ZooManagement.Models.Database;
 using ZooManagement.Models.Request;
+using ZooManagement.Models.ViewModel;
 using ZooManagement.Repositories;
 
 namespace ZooManagement.Services
@@ -7,7 +8,7 @@ namespace ZooManagement.Services
     public interface IAnimalService
     {
         Animal GetAnimalById(int id);
-        IEnumerable<Animal> Search(AnimalSearchRequest search);
+        IEnumerable<AnimalViewModel> Search(AnimalSearchRequest search);
         int Count(AnimalSearchRequest search);
         Animal Create(CreateAnimalRequest animal);
     }
@@ -38,9 +39,9 @@ namespace ZooManagement.Services
             return animal;
         }
 
-        public IEnumerable<Animal> Search(AnimalSearchRequest search)
+        public IEnumerable<AnimalViewModel> Search(AnimalSearchRequest search)
         {
-            IEnumerable<Animal> animals = _animals.Search(search);
+            IEnumerable<AnimalViewModel> animals = _animals.Search(search);
             if (animals == null || animals.Count() == 0)
             {
                 _logger.LogWarning($"Animals not found for parameters {search.Filters}");

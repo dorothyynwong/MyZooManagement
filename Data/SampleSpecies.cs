@@ -28,7 +28,7 @@ namespace ZooManagement.Data
             {
                 Id = index+1,
                 Name = SpeciesGenerator.GetSpecies(index),
-                ClassificationId = index
+                ClassificationId = index+1
             };
         }
     }

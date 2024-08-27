@@ -43,13 +43,13 @@ namespace ZooManagement.Controllers
         [HttpGet("")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AnimalListResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
-        public ActionResult<AnimalListResponse> Search([FromQuery] AnimalSearchRequest searchRequest)
+        public ActionResult<AnimalDetailsListResponse> Search([FromQuery] AnimalSearchRequest searchRequest)
         {
             try
             {
                 var animals = _animalService.Search(searchRequest);
                 var animalCount = _animalService.Count(searchRequest);
-                return AnimalListResponse.Create(searchRequest, animals, animalCount);
+                return AnimalDetailsListResponse.Create(searchRequest, animals, animalCount);
             }
             catch(InvalidOperationException ex)
             {

@@ -1,5 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using ZooManagement.Helpers;
 using ZooManagement.Models.Database;
 using ZooManagement.Models.Request;
+using ZooManagement.Models.ViewModel;
 
 namespace ZooManagement.Repositories
 {
@@ -10,7 +13,7 @@ namespace ZooManagement.Repositories
         
         Animal Create(CreateAnimalRequest animal);
 
-        IEnumerable<Animal> Search(AnimalSearchRequest search);
+        IEnumerable<AnimalViewModel> Search(AnimalSearchRequest search);
 
         int Count(AnimalSearchRequest search);
     }
@@ -30,16 +33,41 @@ namespace ZooManagement.Repositories
                 .FirstOrDefault(animal => animal.Id == id);
         }
 
-        public IEnumerable<Animal> Search(AnimalSearchRequest search)
+        public IEnumerable<AnimalViewModel> Search(AnimalSearchRequest search)
         {
             return _context.Animals
-                .Where(a => search.SpeciesId == null || a.SpeciesId == search.SpeciesId)
-                .Where(a => search.EnclosureId == null || a.EnclosureId == search.EnclosureId)
-                .Where(a => search.Name == null || a.Name == search.Name)
-                .Where(a => search.DateCameToZoo == null || a.DateCameToZoo == search.DateCameToZoo)
-                .Skip((search.Page - 1) * search.PageSize)
-                .Take(search.PageSize);
+                    .Include(a => a.Species)
+                    .ThenInclude(s => s.Classification)
+                    .Where(a => search.SpeciesId == null || a.SpeciesId == search.SpeciesId)
+                    .Where(a => search.ClassificationId == null || a.Species.ClassificationId == search.SpeciesId)
+                    .Where(a => search.Name == null || a.Name == search.Name)
+                    .Where(a => search.DateCameToZoo == null || a.DateCameToZoo == search.DateCameToZoo)
+                    .Where(a => search.EnclosureId == null || a.EnclosureId == search.EnclosureId)
+                    .Skip((search.Page - 1) * search.PageSize)
+                    .Take(search.PageSize)
+                    .Select(a => new AnimalViewModel
+                    {
+                        Id = a.Id,
+                        Name = a.Name,
+                        DateOfBirth = a.DateOfBirth,
+                        DateCameToZoo = a.DateCameToZoo,
+                        EnclosureId = a.EnclosureId,
+                        SpeciesName = a.Species.Name,
+                        ClassificationName = a.Species.Classification.Name
+                    })
+                    .ToList();
         }
+
+        // public IEnumerable<Animal> Search(AnimalSearchRequest search)
+        // {
+        //     return _context.Animals
+        //         .Where(a => search.SpeciesId == null || a.SpeciesId == search.SpeciesId)
+        //         .Where(a => search.EnclosureId == null || a.EnclosureId == search.EnclosureId)
+        //         .Where(a => search.Name == null || a.Name == search.Name)
+        //         .Where(a => search.DateCameToZoo == null || a.DateCameToZoo == search.DateCameToZoo)
+        //         .Skip((search.Page - 1) * search.PageSize)
+        //         .Take(search.PageSize);
+        // }
 
         public int Count(AnimalSearchRequest search)
         {

@@ -1,5 +1,6 @@
 using ZooManagement.Models.Database;
 using ZooManagement.Models.Request;
+using ZooManagement.Models.ViewModel;
 
 namespace ZooManagement.Models.Response
 {
@@ -42,6 +43,18 @@ namespace ZooManagement.Models.Response
         {
             var animalModels = animals.Select(animal => new AnimalResponse(animal));
             return new AnimalListResponse(search, animalModels, totalNumberOfItems);
+        }
+    }
+
+    public class AnimalDetailsListResponse : ListResponse<AnimalDetailsResponse>
+    {
+        private AnimalDetailsListResponse(SearchRequest search, IEnumerable<AnimalDetailsResponse> items, int totalNumberOfItems) 
+            : base(search, items, totalNumberOfItems, "animals") { }
+
+        public static AnimalDetailsListResponse Create(SearchRequest search, IEnumerable<AnimalViewModel> animals, int totalNumberOfItems)
+        {
+            var animalModels = animals.Select(animal => new AnimalDetailsResponse(animal));
+            return new AnimalDetailsListResponse(search, animalModels, totalNumberOfItems);
         }
     }
     
