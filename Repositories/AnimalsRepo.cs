@@ -35,14 +35,15 @@ namespace ZooManagement.Repositories
 
         public IEnumerable<AnimalViewModel> Search(AnimalSearchRequest search)
         {
-            return _context.Animals
+            var animals = _context.Animals
                     .Include(a => a.Species)
                     .ThenInclude(s => s.Classification)
                     .Where(a => search.SpeciesId == null || a.SpeciesId == search.SpeciesId)
-                    .Where(a => search.ClassificationId == null || a.Species.ClassificationId == search.SpeciesId)
+                    .Where(a => search.ClassificationId == null || a.Species.ClassificationId == search.ClassificationId)
                     .Where(a => search.Name == null || a.Name == search.Name)
                     .Where(a => search.DateCameToZoo == null || a.DateCameToZoo == search.DateCameToZoo)
                     .Where(a => search.EnclosureId == null || a.EnclosureId == search.EnclosureId)
+                    .OrderBy(a => a.Species.Name)
                     .Skip((search.Page - 1) * search.PageSize)
                     .Take(search.PageSize)
                     .Select(a => new AnimalViewModel
@@ -56,6 +57,8 @@ namespace ZooManagement.Repositories
                         ClassificationName = a.Species.Classification.Name
                     })
                     .ToList();
+
+             return animals.Where(a => search.Age == null || a.Age == search.Age);
         }
 
         // public IEnumerable<Animal> Search(AnimalSearchRequest search)
