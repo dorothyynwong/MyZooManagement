@@ -6,6 +6,7 @@ namespace ZooManagement.Repositories
     public interface IZooKeepersRepo
     {
         ZooKeeper GetZooKeeper(int id);
+        ZooKeeper Create(CreateZooKeeperRequest zooKeeper);
 
     }
 
@@ -22,6 +23,17 @@ namespace ZooManagement.Repositories
         {
             return _context.ZooKeepers
                 .FirstOrDefault(zooKeeper => zooKeeper.Id == id);
+        }
+
+        public ZooKeeper Create(CreateZooKeeperRequest zooKeeper)
+        {
+            var insertResult = _context.ZooKeepers.Add(new ZooKeeper
+            {
+                Name = zooKeeper.Name,
+                EnclosureId = zooKeeper.EnclosureId
+            });
+            _context.SaveChanges();
+            return insertResult.Entity;
         }
     }
 }

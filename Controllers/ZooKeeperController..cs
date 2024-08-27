@@ -28,8 +28,8 @@ namespace ZooManagement.Controllers
         {
             try
             {
-                var animal = _animalService.GetAnimalById(id);
-                return new AnimalResponse(animal);
+                var zooKeeper = _zooKeepers.GetZooKeeper(id);
+                return new ZooKeeperResponse(zooKeeper);
             }
             catch(InvalidOperationException ex)
             {
@@ -52,9 +52,9 @@ namespace ZooManagement.Controllers
 
             try
             {
-                var animal = _animalService.Create(newZooKeeper);
-                var url = Url.Action("GetById", new { id = animal.Id });
-                var responseViewModel = new AnimalResponse(animal);
+                var zooKeeper = _zooKeepers.Create(newZooKeeper);
+                var url = Url.Action("GetById", new { id = zooKeeper.Id });
+                var responseViewModel = new ZooKeeperResponse(zooKeeper);
                 return Created(url, responseViewModel);
             }
             catch(InvalidOperationException ex)

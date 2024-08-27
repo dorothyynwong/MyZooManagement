@@ -17,7 +17,7 @@ namespace ZooManagement.Data
             return new Animal
             {
                 Id = index+1,
-                Name = AnimalNameGenerator.GetAnimalName(index),
+                Name = NameGenerator.GetAnimalName(index),
                 SpeciesId = RandomNumberGenerator.GetSpeciesId(),
                 Sex = RandomNumberGenerator.GetSex(),
                 DateOfBirth = DateGenerator.GetDateOfBirth(),

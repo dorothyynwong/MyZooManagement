@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace ZooManagement.Data
 {
-    public static class AnimalNameGenerator
+    public static class NameGenerator
     {
         private static readonly IList<string> AnimalName = new List<string>
         {

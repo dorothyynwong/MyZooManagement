@@ -85,6 +85,12 @@ using (var scope = app.Services.CreateScope())
                 startIndex += enclosure.NumberOfAnimals;
             }
         }
+        if (!context.ZooKeepers.Any())
+        {
+            var zooKeepers = SampleZooKeepers.GetZooKeepers();
+            context.ZooKeepers.AddRange(zooKeepers);
+            context.SaveChanges();
+        }
     }
 }
 
