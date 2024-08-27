@@ -41,7 +41,7 @@ namespace ZooManagement.Repositories
                     .Where(a => search.SpeciesId == null || a.SpeciesId == search.SpeciesId)
                     .Where(a => search.ClassificationId == null || a.Species.ClassificationId == search.ClassificationId)
                     .Where(a => search.Name == null || a.Name == search.Name)
-                    .Where(a => search.DateCameToZoo == null || a.DateCameToZoo == search.DateCameToZoo)
+                    .Where(a => search.DateCameToZoo == null || a.DateCameToZoo.Date == search.DateCameToZoo)
                     .Where(a => search.EnclosureId == null || a.EnclosureId == search.EnclosureId)
                     .OrderBy(a => a.Species.Name)
                     .Skip((search.Page - 1) * search.PageSize)
@@ -85,8 +85,8 @@ namespace ZooManagement.Repositories
                 Name = animal.Name,
                 SpeciesId = animal.SpeciesId,
                 Sex = animal.Sex,
-                DateOfBirth = animal.DateOfBirth,
-                DateCameToZoo = animal.DateCameToZoo,
+                DateOfBirth = animal.DateOfBirth.Date,
+                DateCameToZoo = animal.DateCameToZoo.Date,
                 EnclosureId = animal.EnclosureId
             });
             _context.SaveChanges();

@@ -10,13 +10,13 @@ namespace ZooManagement.Data
         public static DateTime GetDateOfBirth()
         {
             var randomDaysAgo = Random.Next(1, MaxCameAge);
-            return DateTime.Now.AddDays(-1 * (MaxCameAge + randomDaysAgo));
+            return DateTime.Now.AddDays(-1 * (MaxCameAge + randomDaysAgo)).Date;
         }
         
         public static DateTime GetDateCameZoo()
         {
             var randomDaysAgo = Random.Next(1, MaxCameAge);
-            return DateTime.Now.AddDays(-1 * randomDaysAgo);
+            return DateTime.Now.AddDays(-1 * randomDaysAgo).Date;
         }
     }
 }
