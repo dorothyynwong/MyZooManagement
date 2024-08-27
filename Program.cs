@@ -3,8 +3,24 @@ using ZooManagement;
 using ZooManagement.Data;
 using ZooManagement.Repositories;
 using ZooManagement.Services;
+using NLog;
+using NLog.Config;
+using NLog.Targets;
+using NLog.Web;
+
+string currentDirectory = System.IO.Directory.GetCurrentDirectory();
+var config = new LoggingConfiguration();
+var todayDate = DateTime.Now.ToString("yyyy-MM-dd");
+var target = new FileTarget { FileName = @$"{currentDirectory}\Logs\ZooManagement\{todayDate}.log", Layout = @"${longdate} ${level} - ${logger}: ${message}" };
+config.AddTarget("File Logger", target);
+config.LoggingRules.Add(new LoggingRule("*", NLog.LogLevel.Debug, target));
+LogManager.Configuration = config;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders(); 
+builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+builder.Host.UseNLog();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -17,6 +33,7 @@ builder.Services.AddDbContext<ZooManagementDbContext>(options =>
     options.UseSqlite("Data Source=ZooManagement.db");
 });
 
+
 builder.Services.AddControllers();
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -28,8 +45,6 @@ builder.Services.AddTransient<IAnimalsRepo, AnimalsRepo>();
 builder.Services.AddTransient<IEnclosuresRepo, EnclosuresRepo>();
 builder.Services.AddTransient<IAnimalService, AnimalService>();
 
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
 
 var app = builder.Build();
 

@@ -28,13 +28,13 @@ namespace ZooManagement.Services
             
             if (enclosure == null)
             {
-                _logger.LogWarning("Enclosure with ID {EnclosureId} not found.", animal.EnclosureId);
+                _logger.LogWarning($"Enclosure with ID {animal.EnclosureId} not found.");
                 throw new InvalidOperationException("Enclosure not found.");
             }
 
             if (enclosure.MaxNumberOfAnimals < enclosure.NumberOfAnimals + 1)
             {
-                _logger.LogWarning("Cannot add animal to enclosure. Enclosure ID {EnclosureId} has reached its maximum capacity.", animal.EnclosureId);
+                _logger.LogWarning($"Cannot add animal to enclosure. Enclosure ID {animal.EnclosureId} has reached its maximum capacity.");
                 throw new InvalidOperationException("Maximum number of animals in the enclosure has been reached.");
             }
 
@@ -43,11 +43,13 @@ namespace ZooManagement.Services
             Enclosure updatedEnclosure = _enclosures.AddAnimalToEnclosure(animal.EnclosureId);
             if (updatedEnclosure == null)
             {
+                _logger.LogError($"Failed to update enclosure {animal.EnclosureId}. Enclosure update operation failed or not found. ");
                 throw new Exception("Failed to update enclosure or enclosure not found.");
             }
 
             if (updatedEnclosure.NumberOfAnimals != newNumberOfAnimals)
             {
+                _logger.LogWarning($"Number of animals in enclosure ID {animal.EnclosureId} did not update as expected. Expected: {newNumberOfAnimals}, Actual: {updatedEnclosure.NumberOfAnimals}.");
                 throw new Exception("Number of animals in the enclosure did not update correctly.");
             }
 
