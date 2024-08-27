@@ -38,6 +38,9 @@ namespace ZooManagement.Controllers
         }
 
         [HttpPost("create")]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(AnimalResponse))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorResponse))]
         public IActionResult Create([FromBody] CreateAnimalRequest newAnimal)
         {
             if (!ModelState.IsValid)

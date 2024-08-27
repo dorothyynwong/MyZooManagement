@@ -6,3 +6,74 @@
 2024-08-27 10:37:42.7261 Info - Microsoft.Hosting.Lifetime: Hosting environment: Development
 2024-08-27 10:37:42.7261 Info - Microsoft.Hosting.Lifetime: Content root path: C:\Users\dorot\Documents\Study\TechSwitch\15-1-ZooManagement\MyZooManagement\MyZooManagement
 2024-08-27 10:37:42.7261 Debug - Microsoft.Extensions.Hosting.Internal.Host: Hosting started
+2024-08-27 11:22:49.9812 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory: Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider
+2024-08-27 11:22:50.0317 Debug - Microsoft.Extensions.Hosting.Internal.Host: Hosting starting
+2024-08-27 11:22:50.0712 Info - Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5067
+2024-08-27 11:22:50.0712 Debug - Microsoft.AspNetCore.Hosting.Diagnostics: Loaded hosting startup assembly zoomanagement
+2024-08-27 11:22:50.0712 Info - Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2024-08-27 11:22:50.0712 Info - Microsoft.Hosting.Lifetime: Hosting environment: Development
+2024-08-27 11:22:50.0712 Info - Microsoft.Hosting.Lifetime: Content root path: C:\Users\dorot\Documents\Study\TechSwitch\15-1-ZooManagement\MyZooManagement\MyZooManagement
+2024-08-27 11:22:50.0712 Debug - Microsoft.Extensions.Hosting.Internal.Host: Hosting started
+2024-08-27 11:23:41.7814 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEN" accepted.
+2024-08-27 11:23:41.7814 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEN" started.
+2024-08-27 11:23:41.7814 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEO" accepted.
+2024-08-27 11:23:41.7814 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEO" started.
+2024-08-27 11:23:41.8406 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5067/swagger/index.html - - -
+2024-08-27 11:23:41.8406 Debug - Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware: Wildcard detected, all requests with hosts will be allowed.
+2024-08-27 11:23:41.8727 Debug - Microsoft.AspNetCore.Routing.Matching.DfaMatcher: No candidates found for the request path '/swagger/index.html'
+2024-08-27 11:23:41.8727 Debug - Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware: Request did not match any endpoints
+2024-08-27 11:23:41.9883 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEN" completed keep alive response.
+2024-08-27 11:23:41.9926 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5067/swagger/index.html - 200 - text/html;charset=utf-8 152.1714ms
+2024-08-27 11:23:42.1109 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5067/swagger/v1/swagger.json - - -
+2024-08-27 11:23:42.1109 Debug - Microsoft.AspNetCore.Routing.Matching.DfaMatcher: No candidates found for the request path '/swagger/v1/swagger.json'
+2024-08-27 11:23:42.1109 Debug - Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware: Request did not match any endpoints
+2024-08-27 11:23:42.2889 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEN" completed keep alive response.
+2024-08-27 11:23:42.2889 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5067/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 178.4291ms
+2024-08-27 11:23:42.7778 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN66G99DIUEN" received FIN.
+2024-08-27 11:23:42.7778 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN66G99DIUEO" received FIN.
+2024-08-27 11:23:42.7778 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN66G99DIUEN" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-08-27 11:23:42.7778 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN66G99DIUEO" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-08-27 11:23:42.7778 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEN" disconnecting.
+2024-08-27 11:23:42.7778 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEO" disconnecting.
+2024-08-27 11:23:42.7778 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEO" stopped.
+2024-08-27 11:23:42.7778 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEN" stopped.
+2024-08-27 11:55:45.9181 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEP" accepted.
+2024-08-27 11:55:45.9181 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEP" started.
+2024-08-27 11:55:45.9181 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 POST http://localhost:5067/api/Animal/create - application/json 167
+2024-08-27 11:55:45.9181 Debug - Microsoft.AspNetCore.Routing.Matching.DfaMatcher: 1 candidate(s) found for the request path '/api/Animal/create'
+2024-08-27 11:55:45.9181 Debug - Microsoft.AspNetCore.Routing.Matching.DfaMatcher: Endpoint 'ZooManagement.Controllers.AnimalController.Create (zoomanagement)' with route pattern 'api/Animal/create' is valid for the request path '/api/Animal/create'
+2024-08-27 11:55:45.9181 Debug - Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware: Request matched endpoint 'ZooManagement.Controllers.AnimalController.Create (zoomanagement)'
+2024-08-27 11:55:45.9181 Debug - Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Static files was skipped as the request already matched an endpoint.
+2024-08-27 11:55:45.9181 Warn - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+2024-08-27 11:55:45.9414 Info - Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'ZooManagement.Controllers.AnimalController.Create (zoomanagement)'
+2024-08-27 11:55:45.9733 Info - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Create", controller = "Animal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(ZooManagement.Models.Request.CreateAnimalRequest) on controller ZooManagement.Controllers.AnimalController (zoomanagement).
+2024-08-27 11:55:45.9749 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Execution plan of authorization filters (in the following order): None
+2024-08-27 11:55:45.9749 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Execution plan of resource filters (in the following order): None
+2024-08-27 11:55:45.9749 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)
+2024-08-27 11:55:45.9749 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Execution plan of exception filters (in the following order): None
+2024-08-27 11:55:45.9749 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)
+2024-08-27 11:55:45.9749 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executing controller factory for controller ZooManagement.Controllers.AnimalController (zoomanagement)
+2024-08-27 11:55:45.9911 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed controller factory for controller ZooManagement.Controllers.AnimalController (zoomanagement)
+2024-08-27 11:55:45.9911 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder: Attempting to bind parameter 'newAnimal' of type 'ZooManagement.Models.Request.CreateAnimalRequest' ...
+2024-08-27 11:55:45.9911 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder: Attempting to bind parameter 'newAnimal' of type 'ZooManagement.Models.Request.CreateAnimalRequest' using the name '' in request data ...
+2024-08-27 11:55:45.9911 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder: Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2024-08-27 11:55:46.0210 Debug - Microsoft.AspNetCore.Server.Kestrel: Connection id "0HN66G99DIUEP", Request id "0HN66G99DIUEP:00000001": started reading request body.
+2024-08-27 11:55:46.0210 Debug - Microsoft.AspNetCore.Server.Kestrel: Connection id "0HN66G99DIUEP", Request id "0HN66G99DIUEP:00000001": done reading request body.
+2024-08-27 11:55:46.0360 Debug - Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter: JSON input formatter succeeded, deserializing to type 'ZooManagement.Models.Request.CreateAnimalRequest'
+2024-08-27 11:55:46.0360 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder: Done attempting to bind parameter 'newAnimal' of type 'ZooManagement.Models.Request.CreateAnimalRequest'.
+2024-08-27 11:55:46.0360 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder: Done attempting to bind parameter 'newAnimal' of type 'ZooManagement.Models.Request.CreateAnimalRequest'.
+2024-08-27 11:55:46.0360 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder: Attempting to validate the bound parameter 'newAnimal' of type 'ZooManagement.Models.Request.CreateAnimalRequest' ...
+2024-08-27 11:55:46.0800 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder: Done attempting to validate the bound parameter 'newAnimal' of type 'ZooManagement.Models.Request.CreateAnimalRequest'.
+2024-08-27 11:55:46.3186 Warn - ZooManagement.Services.AnimalService: Cannot add animal to enclosure. Enclosure ID 8 has reached its maximum capacity.
+2024-08-27 11:55:46.3186 Warn - ZooManagement.Controllers.AnimalController: Business logic error: Maximum number of animals in the enclosure has been reached.
+2024-08-27 11:55:46.3186 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter
+2024-08-27 11:55:46.3186 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: Attempting to select an output formatter based on Accept header 'text/plain'.
+2024-08-27 11:55:46.3186 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: Could not find an output formatter based on content negotiation. Accepted types were (text/plain)
+2024-08-27 11:55:46.3186 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2024-08-27 11:55:46.3186 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: Attempting to select the first formatter in the output formatters list which can write the result.
+2024-08-27 11:55:46.3186 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2024-08-27 11:55:46.3186 Info - Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing BadRequestObjectResult, writing value of type 'ZooManagement.Models.Response.ErrorResponse'.
+2024-08-27 11:55:46.3380 Info - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action ZooManagement.Controllers.AnimalController.Create (zoomanagement) in 353.3619ms
+2024-08-27 11:55:46.3380 Info - Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'ZooManagement.Controllers.AnimalController.Create (zoomanagement)'
+2024-08-27 11:55:46.3380 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN66G99DIUEP" completed keep alive response.
+2024-08-27 11:55:46.3461 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5067/api/Animal/create - 400 - application/json;+charset=utf-8 423.5488ms
