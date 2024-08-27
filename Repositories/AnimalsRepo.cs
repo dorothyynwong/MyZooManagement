@@ -33,7 +33,10 @@ namespace ZooManagement.Repositories
         public IEnumerable<Animal> Search(AnimalSearchRequest search)
         {
             return _context.Animals
-                .Where(p => search.SpeciesId == null || p.SpeciesId == search.SpeciesId)
+                .Where(a => search.SpeciesId == null || a.SpeciesId == search.SpeciesId)
+                .Where(a => search.EnclosureId == null || a.EnclosureId == search.EnclosureId)
+                .Where(a => search.Name == null || a.Name == search.Name)
+                .Where(a => search.DateCameToZoo == null || a.DateCameToZoo == search.DateCameToZoo)
                 .Skip((search.Page - 1) * search.PageSize)
                 .Take(search.PageSize);
         }

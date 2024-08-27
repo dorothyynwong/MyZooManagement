@@ -16,12 +16,14 @@ namespace ZooManagement.Services
     {
         private readonly ILogger<AnimalService> _logger;
         private readonly IAnimalsRepo _animals;
+        private readonly ISpeciesRepo _species;
         private readonly IEnclosuresRepo _enclosures;
 
-        public AnimalService(ILogger<AnimalService> logger, IAnimalsRepo animals, IEnclosuresRepo enclosures)
+        public AnimalService(ILogger<AnimalService> logger, IAnimalsRepo animals, ISpeciesRepo species, IEnclosuresRepo enclosures)
         {
             _logger = logger;
             _animals = animals;
+            _species = species;
             _enclosures = enclosures;
         }
 
