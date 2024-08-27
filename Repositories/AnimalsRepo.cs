@@ -21,7 +21,6 @@ namespace ZooManagement.Repositories
     public class AnimalsRepo : IAnimalsRepo
     {
         private readonly ZooManagementDbContext _context;
-
         public AnimalsRepo(ZooManagementDbContext context)
         {
             _context = context;
@@ -35,30 +34,37 @@ namespace ZooManagement.Repositories
 
         public IEnumerable<AnimalViewModel> Search(AnimalSearchRequest search)
         {
-            var animals = _context.Animals
+            var query = _context.Animals
                     .Include(a => a.Species)
                     .ThenInclude(s => s.Classification)
                     .Where(a => search.SpeciesId == null || a.SpeciesId == search.SpeciesId)
                     .Where(a => search.ClassificationId == null || a.Species.ClassificationId == search.ClassificationId)
                     .Where(a => search.Name == null || a.Name == search.Name)
                     .Where(a => search.DateCameToZoo == null || a.DateCameToZoo.Date == search.DateCameToZoo)
-                    .Where(a => search.EnclosureId == null || a.EnclosureId == search.EnclosureId)
-                    .OrderBy(a => a.Species.Name)
-                    .Skip((search.Page - 1) * search.PageSize)
-                    .Take(search.PageSize)
-                    .Select(a => new AnimalViewModel
-                    {
-                        Id = a.Id,
-                        Name = a.Name,
-                        DateOfBirth = a.DateOfBirth,
-                        DateCameToZoo = a.DateCameToZoo,
-                        EnclosureId = a.EnclosureId,
-                        SpeciesName = a.Species.Name,
-                        ClassificationName = a.Species.Classification.Name
-                    })
-                    .ToList();
+                    .Where(a => search.EnclosureId == null || a.EnclosureId == search.EnclosureId);
+            var animals = query.Select(a => new AnimalViewModel
+                        {
+                            Id = a.Id,
+                            Name = a.Name,
+                            SpeciesId = a. SpeciesId,
+                            DateOfBirth = a.DateOfBirth,
+                            DateCameToZoo = a.DateCameToZoo,
+                            EnclosureId = a.EnclosureId,
+                            EnclosureName = a.Enclosure.Name,
+                            SpeciesName = a.Species.Name,
+                            ClassificationName = a.Species.Classification.Name
+                        })
+                        .ToList();
+                    
 
-             return animals.Where(a => search.Age == null || a.Age == search.Age);
+             var filteredAndOrderedAnimals = animals
+                    .Where(a => search.Age == null || a.Age == search.Age)
+                    .OrderBy(a => CustomOrder.EnclosureOrder.ContainsKey(a.EnclosureName) ? CustomOrder.EnclosureOrder[a.EnclosureName] : int.MaxValue)
+                    .ThenBy(a => a.Name)
+                    .Skip((search.Page - 1) * search.PageSize)
+                    .Take(search.PageSize);
+                    
+             return filteredAndOrderedAnimals;
         }
 
         // public IEnumerable<Animal> Search(AnimalSearchRequest search)

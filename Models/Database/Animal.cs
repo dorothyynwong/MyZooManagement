@@ -12,5 +12,6 @@ namespace ZooManagement.Models.Database
         public DateTime DateCameToZoo { get; set; }
         public int EnclosureId { get; set; }
         public Species Species  { get; set; }
+        public Enclosure Enclosure  {get; set;}
     }
 }

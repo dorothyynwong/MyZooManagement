@@ -17,6 +17,10 @@ namespace ZooManagement.Data
         {
             return Random.Next(1, SampleEnclosures.NumberOfEnclosures + 1);
         }
+        public static int GetClassificationId()
+        {
+            return Random.Next(1, SampleClassification.NumberOfClassification + 1);
+        }
 
         public static Sex GetSex()
         {

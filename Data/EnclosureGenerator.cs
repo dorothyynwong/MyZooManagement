@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace ZooManagement.Data
 {
-    public static class SpeciesGenerator
+    public static class EnclosureGenerator
     {
-        private static readonly IList<string> Species = new List<string>
+        private static readonly IList<string> Enclosures = new List<string>
         {
             "Lion",
             "Aviary",
@@ -16,9 +16,9 @@ namespace ZooManagement.Data
             "Parrot",
         };
 
-        public static string GetSpecies(int index)
+        public static string GetEnclosure(int index)
         {
-            return Species[index];
+            return Enclosures[index];
         }
     }
 }

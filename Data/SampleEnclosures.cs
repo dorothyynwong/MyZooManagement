@@ -20,7 +20,7 @@ namespace ZooManagement.Data
             return new Enclosure
             {
                 Id = index+1,
-                Name = SpeciesGenerator.GetSpecies(index),
+                Name = EnclosureGenerator.GetEnclosure(index),
                 MaxNumberOfAnimals = maxNumberOfAnimals,
                 NumberOfAnimals = RandomNumberGenerator.GetNumberOfAnimals(maxNumberOfAnimals)
             };

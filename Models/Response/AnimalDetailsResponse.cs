@@ -24,6 +24,7 @@ namespace ZooManagement.Models.Response
         public int ClassificationId => _animal.ClassificationId;
         public string ClassificationName => _animal.ClassificationName;
         public string SpeciesName => _animal.SpeciesName;
+        public string EnclosureName => _animal.EnclosureName;
 
     }
 }
