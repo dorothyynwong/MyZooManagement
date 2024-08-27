@@ -23,18 +23,40 @@ namespace ZooManagement.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AnimalResponse))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
         public ActionResult<AnimalResponse> GetById([FromRoute] int id)
         {
-            var animal = _animals.GetAnimalById(id);
-            return new AnimalResponse(animal);
+            try
+            {
+                var animal = _animalService.GetAnimalById(id);
+                return new AnimalResponse(animal);
+            }
+            catch(InvalidOperationException ex)
+            {
+                _logger.LogWarning(ex, "Business logic error: {Message}", ex.Message);
+                return BadRequest(new ErrorResponse { StatusCode = 400, Message = "Business logic error.", Details = ex.Message });
+            }
+
         }
 
         [HttpGet("")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AnimalListResponse))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
         public ActionResult<AnimalListResponse> Search([FromQuery] AnimalSearchRequest searchRequest)
         {
-            var animals = _animals.Search(searchRequest);
-            var animalCount = _animals.Count(searchRequest);
-            return AnimalListResponse.Create(searchRequest, animals, animalCount);
+            try
+            {
+                var animals = _animalService.Search(searchRequest);
+                var animalCount = _animalService.Count(searchRequest);
+                return AnimalListResponse.Create(searchRequest, animals, animalCount);
+            }
+            catch(InvalidOperationException ex)
+            {
+                _logger.LogWarning(ex, "Business logic error: {Message}", ex.Message);
+                return BadRequest(new ErrorResponse { StatusCode = 400, Message = "Business logic error.", Details = ex.Message });
+            }
+
         }
 
         [HttpPost("create")]

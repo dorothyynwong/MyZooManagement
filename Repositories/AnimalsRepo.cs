@@ -27,7 +27,7 @@ namespace ZooManagement.Repositories
         public Animal GetAnimalById(int id)
         {
             return _context.Animals
-                .Single(animal => animal.Id == id);
+                .FirstOrDefault(animal => animal.Id == id);
         }
 
         public IEnumerable<Animal> Search(AnimalSearchRequest search)
