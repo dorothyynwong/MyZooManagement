@@ -11,9 +11,7 @@ namespace ZooManagement.Models.Database
         public DateTime DateOfBirth { get; set; }
         public DateTime DateCameToZoo { get; set; }
         public int EnclosureId { get; set; }
-        public int ZooKeeperId  { get; set; }
         public Species Species  { get; set; }
         public Enclosure Enclosure  {get; set;}
-        public ZooKeeper ZooKeeper { get; set;}
     }
 }
