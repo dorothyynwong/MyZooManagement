@@ -18,7 +18,6 @@ namespace ZooManagement.Data
             {
                 Id = index+1,
                 Name = NameGenerator.GetAnimalName(index),
-                EnclosureId = RandomNumberGenerator.GetEnclosureId()
             };
         }
     }

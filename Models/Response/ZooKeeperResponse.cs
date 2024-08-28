@@ -14,6 +14,6 @@ namespace ZooManagement.Models.Response
 
         public int Id => _zooKeeper.Id;
         public string Name => _zooKeeper.Name;
-        public int EnclosureId => _zooKeeper.EnclosureId;
+        
     }
 }

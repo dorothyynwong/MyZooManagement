@@ -6,5 +6,7 @@ namespace ZooManagement.Models.Database
         public string Name { get; set; }
         public int MaxNumberOfAnimals   { get; set; }
         public int NumberOfAnimals  { get; set; }
+
+        public List<ZooKeeper> ZooKeepers { get; set; } = [];
     }
 }

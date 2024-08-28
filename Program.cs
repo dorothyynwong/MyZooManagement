@@ -72,6 +72,13 @@ using (var scope = app.Services.CreateScope())
         var enclosures = SampleEnclosures.GetEnclosures();
         context.Enclosures.AddRange(enclosures);
         context.SaveChanges();
+        
+        if (!context.ZooKeepers.Any())
+        {
+            var zooKeepers = SampleZooKeepers.GetZooKeepers();
+            context.ZooKeepers.AddRange(zooKeepers);
+            context.SaveChanges();
+        }
 
         if (!context.Animals.Any())
         {
@@ -85,12 +92,7 @@ using (var scope = app.Services.CreateScope())
                 startIndex += enclosure.NumberOfAnimals;
             }
         }
-        if (!context.ZooKeepers.Any())
-        {
-            var zooKeepers = SampleZooKeepers.GetZooKeepers();
-            context.ZooKeepers.AddRange(zooKeepers);
-            context.SaveChanges();
-        }
+
     }
 }
 

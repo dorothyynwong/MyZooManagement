@@ -30,7 +30,6 @@ namespace ZooManagement.Repositories
             var insertResult = _context.ZooKeepers.Add(new ZooKeeper
             {
                 Name = zooKeeper.Name,
-                EnclosureId = zooKeeper.EnclosureId
             });
             _context.SaveChanges();
             return insertResult.Entity;

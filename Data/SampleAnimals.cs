@@ -23,7 +23,7 @@ namespace ZooManagement.Data
                 DateOfBirth = DateGenerator.GetDateOfBirth(),
                 DateCameToZoo = DateGenerator.GetDateCameZoo(),
                 EnclosureId = enclosureId
-                
+            
             };
         }
     }
