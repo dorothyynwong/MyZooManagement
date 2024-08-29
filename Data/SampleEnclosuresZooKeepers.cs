@@ -30,8 +30,8 @@ namespace ZooManagement.Data
 
             return new EnclosureZooKeeper
             {
-                EnclosureId = RandomNumberGenerator.GetEnclosureId(),
-                ZooKeeperId = RandomNumberGenerator.GetZooKeeperId()
+                EnclosureId = enclosureId,
+                ZooKeeperId = zooKeeperId
             };
         }
     }

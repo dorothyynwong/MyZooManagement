@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ZooManagement.Models.Database
 {
-    [Keyless]
     public class EnclosureZooKeeper
     {
+        public int Id { get; set; }
         public int EnclosureId { get; set; }
         public int ZooKeeperId { get; set; }
         

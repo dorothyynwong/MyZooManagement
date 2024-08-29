@@ -8,5 +8,6 @@ namespace ZooManagement.Models.Database
         public int NumberOfAnimals  { get; set; }
 
         public List<ZooKeeper> ZooKeepers { get; set; } = [];
+        public List<Animal> Animals { get; set; } = [];
     }
 }

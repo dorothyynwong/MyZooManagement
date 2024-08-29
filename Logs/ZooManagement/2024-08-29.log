@@ -14,3 +14,94 @@
 2024-08-29 09:21:33.2540 Info - Microsoft.Hosting.Lifetime: Hosting environment: Development
 2024-08-29 09:21:33.2540 Info - Microsoft.Hosting.Lifetime: Content root path: C:\Users\dorot\Documents\Study\TechSwitch\15-1-ZooManagement\MyZooManagement\MyZooManagement
 2024-08-29 09:21:33.2540 Debug - Microsoft.Extensions.Hosting.Internal.Host: Hosting started
+2024-08-29 17:32:34.2457 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory: Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider
+2024-08-29 17:32:34.3738 Debug - Microsoft.Extensions.Hosting.Internal.Host: Hosting starting
+2024-08-29 17:32:34.5062 Info - Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5067
+2024-08-29 17:32:34.5062 Debug - Microsoft.AspNetCore.Hosting.Diagnostics: Loaded hosting startup assembly zoomanagement
+2024-08-29 17:32:34.5062 Info - Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2024-08-29 17:32:34.5062 Info - Microsoft.Hosting.Lifetime: Hosting environment: Development
+2024-08-29 17:32:34.5062 Info - Microsoft.Hosting.Lifetime: Content root path: C:\Users\dorot\Documents\Study\TechSwitch\15-1-ZooManagement\MyZooManagement\MyZooManagement
+2024-08-29 17:32:34.5062 Debug - Microsoft.Extensions.Hosting.Internal.Host: Hosting started
+2024-08-29 17:33:49.7572 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory: Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider
+2024-08-29 17:33:49.8919 Debug - Microsoft.Extensions.Hosting.Internal.Host: Hosting starting
+2024-08-29 17:33:50.0051 Info - Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5067
+2024-08-29 17:33:50.0051 Debug - Microsoft.AspNetCore.Hosting.Diagnostics: Loaded hosting startup assembly zoomanagement
+2024-08-29 17:33:50.0051 Info - Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2024-08-29 17:33:50.0051 Info - Microsoft.Hosting.Lifetime: Hosting environment: Development
+2024-08-29 17:33:50.0051 Info - Microsoft.Hosting.Lifetime: Content root path: C:\Users\dorot\Documents\Study\TechSwitch\15-1-ZooManagement\MyZooManagement\MyZooManagement
+2024-08-29 17:33:50.0051 Debug - Microsoft.Extensions.Hosting.Internal.Host: Hosting started
+2024-08-29 17:34:53.1741 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory: Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider
+2024-08-29 17:34:53.2111 Debug - Microsoft.Extensions.Hosting.Internal.Host: Hosting starting
+2024-08-29 17:34:53.2456 Info - Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5067
+2024-08-29 17:34:53.2456 Debug - Microsoft.AspNetCore.Hosting.Diagnostics: Loaded hosting startup assembly zoomanagement
+2024-08-29 17:34:53.2456 Info - Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2024-08-29 17:34:53.2456 Info - Microsoft.Hosting.Lifetime: Hosting environment: Development
+2024-08-29 17:34:53.2456 Info - Microsoft.Hosting.Lifetime: Content root path: C:\Users\dorot\Documents\Study\TechSwitch\15-1-ZooManagement\MyZooManagement\MyZooManagement
+2024-08-29 17:34:53.2456 Debug - Microsoft.Extensions.Hosting.Internal.Host: Hosting started
+2024-08-29 17:35:12.2997 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KC" accepted.
+2024-08-29 17:35:12.2997 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KC" started.
+2024-08-29 17:35:12.2997 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KD" accepted.
+2024-08-29 17:35:12.2997 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KD" started.
+2024-08-29 17:35:12.3642 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5067/swagger/index.html - - -
+2024-08-29 17:35:12.3642 Debug - Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware: Wildcard detected, all requests with hosts will be allowed.
+2024-08-29 17:35:12.3852 Debug - Microsoft.AspNetCore.Routing.Matching.DfaMatcher: No candidates found for the request path '/swagger/index.html'
+2024-08-29 17:35:12.3852 Debug - Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware: Request did not match any endpoints
+2024-08-29 17:35:12.4734 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KC" completed keep alive response.
+2024-08-29 17:35:12.4761 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5067/swagger/index.html - 200 - text/html;charset=utf-8 112.4948ms
+2024-08-29 17:35:12.5594 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN68926TO6KD" received FIN.
+2024-08-29 17:35:12.5594 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN68926TO6KC" received FIN.
+2024-08-29 17:35:12.5594 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN68926TO6KC" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-08-29 17:35:12.5594 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN68926TO6KD" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-08-29 17:35:12.5594 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KD" disconnecting.
+2024-08-29 17:35:12.5594 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KC" disconnecting.
+2024-08-29 17:35:12.5594 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KC" stopped.
+2024-08-29 17:35:12.5594 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KD" stopped.
+2024-08-29 17:35:12.7591 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KE" accepted.
+2024-08-29 17:35:12.7591 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KE" started.
+2024-08-29 17:35:12.7591 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5067/swagger/v1/swagger.json - - -
+2024-08-29 17:35:12.7591 Debug - Microsoft.AspNetCore.Routing.Matching.DfaMatcher: No candidates found for the request path '/swagger/v1/swagger.json'
+2024-08-29 17:35:12.7591 Debug - Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware: Request did not match any endpoints
+2024-08-29 17:35:12.8928 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KE" completed keep alive response.
+2024-08-29 17:35:12.8928 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5067/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 133.1531ms
+2024-08-29 17:35:17.5758 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN68926TO6KE" received FIN.
+2024-08-29 17:35:17.5758 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KE" disconnecting.
+2024-08-29 17:35:17.5758 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN68926TO6KE" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-08-29 17:35:17.5890 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KE" stopped.
+2024-08-29 17:35:18.7125 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KF" accepted.
+2024-08-29 17:35:18.7125 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KF" started.
+2024-08-29 17:35:18.7125 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5067/api/ZooKeeper/1 - - -
+2024-08-29 17:35:18.7255 Debug - Microsoft.AspNetCore.Routing.Matching.DfaMatcher: 1 candidate(s) found for the request path '/api/ZooKeeper/1'
+2024-08-29 17:35:18.7255 Debug - Microsoft.AspNetCore.Routing.Matching.DfaMatcher: Endpoint 'ZooManagement.Controllers.ZooKeeperController.GetById (zoomanagement)' with route pattern 'api/ZooKeeper/{id}' is valid for the request path '/api/ZooKeeper/1'
+2024-08-29 17:35:18.7255 Debug - Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware: Request matched endpoint 'ZooManagement.Controllers.ZooKeeperController.GetById (zoomanagement)'
+2024-08-29 17:35:18.7255 Debug - Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Static files was skipped as the request already matched an endpoint.
+2024-08-29 17:35:18.7255 Warn - Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+2024-08-29 17:35:18.7255 Info - Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'ZooManagement.Controllers.ZooKeeperController.GetById (zoomanagement)'
+2024-08-29 17:35:18.7519 Info - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "GetById", controller = "ZooKeeper"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[ZooManagement.Models.Response.ZooKeeperResponse] GetById(Int32) on controller ZooManagement.Controllers.ZooKeeperController (zoomanagement).
+2024-08-29 17:35:18.7519 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Execution plan of authorization filters (in the following order): None
+2024-08-29 17:35:18.7519 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Execution plan of resource filters (in the following order): None
+2024-08-29 17:35:18.7519 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)
+2024-08-29 17:35:18.7519 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Execution plan of exception filters (in the following order): None
+2024-08-29 17:35:18.7519 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)
+2024-08-29 17:35:18.7519 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executing controller factory for controller ZooManagement.Controllers.ZooKeeperController (zoomanagement)
+2024-08-29 17:35:18.7623 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed controller factory for controller ZooManagement.Controllers.ZooKeeperController (zoomanagement)
+2024-08-29 17:35:18.7623 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder: Attempting to bind parameter 'id' of type 'System.Int32' ...
+2024-08-29 17:35:18.7623 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder: Attempting to bind parameter 'id' of type 'System.Int32' using the name 'id' in request data ...
+2024-08-29 17:35:18.7623 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder: Done attempting to bind parameter 'id' of type 'System.Int32'.
+2024-08-29 17:35:18.7623 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder: Done attempting to bind parameter 'id' of type 'System.Int32'.
+2024-08-29 17:35:18.7623 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder: Attempting to validate the bound parameter 'id' of type 'System.Int32' ...
+2024-08-29 17:35:18.7623 Debug - Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder: Done attempting to validate the bound parameter 'id' of type 'System.Int32'.
+2024-08-29 17:35:18.8894 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter
+2024-08-29 17:35:18.8926 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: Attempting to select an output formatter based on Accept header 'text/plain'.
+2024-08-29 17:35:18.8926 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: Could not find an output formatter based on content negotiation. Accepted types were (text/plain)
+2024-08-29 17:35:18.8926 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2024-08-29 17:35:18.8926 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: Attempting to select the first formatter in the output formatters list which can write the result.
+2024-08-29 17:35:18.8926 Debug - Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector: Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2024-08-29 17:35:18.8926 Info - Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'ZooManagement.Models.Response.ZooKeeperResponse'.
+2024-08-29 17:35:18.8926 Info - Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action ZooManagement.Controllers.ZooKeeperController.GetById (zoomanagement) in 144.3623ms
+2024-08-29 17:35:18.8926 Info - Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'ZooManagement.Controllers.ZooKeeperController.GetById (zoomanagement)'
+2024-08-29 17:35:18.8926 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KF" completed keep alive response.
+2024-08-29 17:35:18.9083 Info - Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5067/api/ZooKeeper/1 - 200 - application/json;+charset=utf-8 194.1800ms
+2024-08-29 17:35:22.5882 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN68926TO6KF" received FIN.
+2024-08-29 17:35:22.5886 Debug - Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets: Connection id "0HN68926TO6KF" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-08-29 17:35:22.5886 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KF" disconnecting.
+2024-08-29 17:35:22.5886 Debug - Microsoft.AspNetCore.Server.Kestrel.Connections: Connection id "0HN68926TO6KF" stopped.
