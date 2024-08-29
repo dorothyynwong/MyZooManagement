@@ -37,5 +37,10 @@ namespace ZooManagement.Data
         {
             return Random.Next(0,maxNumberOfAnimals);
         }
+
+        public static int GetZooKeeperId()
+        {
+            return Random.Next(1, SampleZooKeepers.NumberOfZooKeepers + 1);
+        }
     }
 }

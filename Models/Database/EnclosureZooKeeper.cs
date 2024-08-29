@@ -1,5 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace ZooManagement.Models.Database
 {
+    [Keyless]
     public class EnclosureZooKeeper
     {
         public int EnclosureId { get; set; }

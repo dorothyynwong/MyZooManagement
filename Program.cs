@@ -79,6 +79,12 @@ using (var scope = app.Services.CreateScope())
             context.ZooKeepers.AddRange(zooKeepers);
             context.SaveChanges();
         }
+        if(!context.EnclosuresZooKeepers.Any())
+        {
+            var enclosuresZooKeepers = SampleEnclosuresZooKeepers.GetEnclosuresZooKeepers();
+            context.EnclosuresZooKeepers.AddRange(enclosuresZooKeepers);
+            context.SaveChanges();            
+        }
 
         if (!context.Animals.Any())
         {
