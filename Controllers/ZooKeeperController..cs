@@ -21,23 +21,23 @@ namespace ZooManagement.Controllers
             _animalService = animalService;
         }
 
-        // [HttpGet("{id}")]
-        // [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ZooKeeperResponse))]
-        // [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
-        // public ActionResult<ZooKeeperResponse> GetById([FromRoute] int id)
-        // {
-        //     try
-        //     {
-        //         var zooKeeper = _zooKeepers.GetZooKeeper(id);
-        //         return new ZooKeeperResponse(zooKeeper);
-        //     }
-        //     catch(InvalidOperationException ex)
-        //     {
-        //         _logger.LogWarning(ex, "Business logic error: {Message}", ex.Message);
-        //         return BadRequest(new ErrorResponse { StatusCode = 400, Message = "Business logic error.", Details = ex.Message });
-        //     }
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ZooKeeperResponse))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
+        public ActionResult<ZooKeeperResponse> GetById([FromRoute] int id)
+        {
+            try
+            {
+                var zooKeeper = _zooKeepers.GetZooKeeperById(id);
+                return new ZooKeeperResponse(zooKeeper);
+            }
+            catch(InvalidOperationException ex)
+            {
+                _logger.LogWarning(ex, "Business logic error: {Message}", ex.Message);
+                return BadRequest(new ErrorResponse { StatusCode = 400, Message = "Business logic error.", Details = ex.Message });
+            }
 
-        // }
+        }
 
         // [HttpPost("create")]
         // [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ZooKeeperResponse))]
