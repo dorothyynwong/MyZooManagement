@@ -10,6 +10,7 @@ namespace ZooManagement.Repositories
     {
         
         Animal GetAnimalById(int id);
+        List<Animal> GetAnimalByEnclosureId(int enclosureId);
         
         Animal Create(CreateAnimalRequest animal);
 
@@ -30,6 +31,13 @@ namespace ZooManagement.Repositories
         {
             return _context.Animals
                 .FirstOrDefault(animal => animal.Id == id);
+        }
+
+        public List<Animal> GetAnimalByEnclosureId(int enclosureId)
+        {
+            return _context.Animals
+                .Where(animal => animal.EnclosureId == enclosureId)
+                .ToList();
         }
 
         public IEnumerable<AnimalViewModel> Search(AnimalSearchRequest search)

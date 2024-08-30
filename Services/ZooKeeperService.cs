@@ -35,13 +35,21 @@ namespace ZooManagement.Services
         public ZooKeeper GetZooKeeperById(int id)
         {
             ZooKeeper zooKeeper = _zooKeepers.GetZooKeeperById(id);
-            // EnclosureZooKeeper enclosureZooKeeper = _enclosures
             
             if (zooKeeper == null)
             {
                 _logger.LogWarning($"Zoo Keeper with ID {id} not found");
                 throw new InvalidOperationException($"Zoo Keeper with ID {id} not found");
             }
+
+            List<Enclosure> enclosures = _enclosuresZooKeepers.GetEnclosures(id);
+            if (enclosures == null)
+            {
+                _logger.LogWarning($"Enclosures of Zoo Keeper ID {id} not found");
+                throw new InvalidOperationException($"Enclosures of Zoo Keeper ID {id} not found");
+            }
+
+            zooKeeper.Enclosures = enclosures;
             return zooKeeper;
         }
 
