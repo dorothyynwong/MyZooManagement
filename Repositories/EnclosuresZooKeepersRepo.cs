@@ -21,14 +21,12 @@ namespace ZooManagement.Repositories
 
         public List<ZooKeeper> GetZooKeepers(int enclosureId)
         {
-            return _context.EnclosuresZooKeepers
-                .FirstOrDefault(enclosureZooKeeper => enclosureZooKeeper.EnclosureId == enclosureId);
+            return  new List<ZooKeeper>{};
         }
 
         public List<Enclosure> GetEnclosures(int zooId)
         {
-            return _context.EnclosuresZooKeepers
-                .FirstOrDefault(zooKeeper => zooKeeper.Id == id);
+            return  new List<Enclosure>{};
         }
 
 

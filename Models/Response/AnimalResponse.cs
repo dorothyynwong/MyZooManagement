@@ -18,5 +18,6 @@ namespace ZooManagement.Models.Response
         public Sex Sex => _animal.Sex;
         public DateTime DateOfBirth => _animal.DateOfBirth;
         public DateTime  DateCameToZoom => _animal.DateCameToZoo;
+        public int EnclosureId => _animal.EnclosureId;
     }
 }
