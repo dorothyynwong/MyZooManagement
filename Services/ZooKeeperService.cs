@@ -17,18 +17,25 @@ namespace ZooManagement.Services
         private readonly IAnimalsRepo _animals;
         private readonly IZooKeepersRepo _zooKeepers;
         private readonly IEnclosuresRepo _enclosures;
+        private readonly IEnclosuresZooKeepersRepo _enclosuresZooKeepers;
 
-        public ZooKeeperService(ILogger<ZooKeeperService> logger, IZooKeepersRepo zooKeepers, IAnimalsRepo animals, IEnclosuresRepo enclosures)
+        public ZooKeeperService(ILogger<ZooKeeperService> logger, 
+                                IZooKeepersRepo zooKeepers, 
+                                IAnimalsRepo animals, 
+                                IEnclosuresRepo enclosures,
+                                IEnclosuresZooKeepersRepo enclosuresZooKeepers)
         {
             _logger = logger;
             _zooKeepers = zooKeepers;
             _animals = animals;
             _enclosures = enclosures;
+            _enclosuresZooKeepers = enclosuresZooKeepers;
         }
 
         public ZooKeeper GetZooKeeperById(int id)
         {
             ZooKeeper zooKeeper = _zooKeepers.GetZooKeeperById(id);
+            // EnclosureZooKeeper enclosureZooKeeper = _enclosures
             
             if (zooKeeper == null)
             {
