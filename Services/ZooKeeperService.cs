@@ -42,12 +42,18 @@ namespace ZooManagement.Services
                 throw new InvalidOperationException($"Zoo Keeper with ID {id} not found");
             }
 
-            List<Enclosure> enclosures = _enclosuresZooKeepers.GetEnclosures(id);
+            List<Enclosure> enclosures = _enclosuresZooKeepers.GetEnclosuresByZooKeeperId(id);
             if (enclosures == null)
             {
                 _logger.LogWarning($"Enclosures of Zoo Keeper ID {id} not found");
                 throw new InvalidOperationException($"Enclosures of Zoo Keeper ID {id} not found");
             }
+           enclosures.Select(enclosure => enclosure.Animals = _animals.GetAnimalByEnclosureId(enclosure.Id)).ToList();
+            // foreach(Enclosure enclosure in enclosures)
+            // {
+            //     enclosure.Animals = _animals.GetAnimalByEnclosureId(enclosure.Id).ToList();
+            //     enclosure.Animals.Select(a => a.Enclosure = enclosure);
+            // }
 
             zooKeeper.Enclosures = enclosures;
             return zooKeeper;

@@ -6,8 +6,8 @@ namespace ZooManagement.Repositories
 {
     public interface IEnclosuresZooKeepersRepo
     {
-        List<ZooKeeper> GetZooKeepers(int enclosureId);
-        List<Enclosure> GetEnclosures(int zooId);
+        List<ZooKeeper> GetZooKeepersByEnclosureId(int enclosureId);
+        List<Enclosure> GetEnclosuresByZooKeeperId(int zooId);
 
     }
 
@@ -20,10 +20,11 @@ namespace ZooManagement.Repositories
             _context = context;
         }
 
-        public List<ZooKeeper> GetZooKeepers(int enclosureId)
+        public List<ZooKeeper> GetZooKeepersByEnclosureId(int enclosureId)
         {
             var query = _context.EnclosuresZooKeepers
-                            .Include(ez => ez.ZooKeeper);
+                            .Include(ez => ez.ZooKeeper)
+                            .Where(ez => ez.EnclosureId == enclosureId);
 
             List<ZooKeeper> zooKeepers = query.Select( z => new ZooKeeper
                             {
@@ -34,10 +35,11 @@ namespace ZooManagement.Repositories
             return zooKeepers;
         }
 
-        public List<Enclosure> GetEnclosures(int zooKeeperId)
+        public List<Enclosure> GetEnclosuresByZooKeeperId(int zooKeeperId)
         {
             var query = _context.EnclosuresZooKeepers
-                            .Include(ez => ez.Enclosure);
+                            .Include(ez => ez.Enclosure)
+                            .Where(ez => ez.ZooKeeperId == zooKeeperId);
 
             List<Enclosure> enclosures = query.Select( e => new Enclosure
                             {

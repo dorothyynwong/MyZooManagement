@@ -45,7 +45,9 @@ builder.Services.AddTransient<IAnimalsRepo, AnimalsRepo>();
 builder.Services.AddTransient<ISpeciesRepo, SpeciesRepo>();
 builder.Services.AddTransient<IEnclosuresRepo, EnclosuresRepo>();
 builder.Services.AddTransient<IZooKeepersRepo, ZooKeepersRepo>();
+builder.Services.AddTransient<IEnclosuresZooKeepersRepo, EnclosuresZooKeepersRepo>();
 builder.Services.AddTransient<IAnimalService, AnimalService>();
+builder.Services.AddTransient<IZooKeeperService, ZooKeeperService>();
 
 
 var app = builder.Build();

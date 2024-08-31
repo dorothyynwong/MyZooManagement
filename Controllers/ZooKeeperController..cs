@@ -11,25 +11,25 @@ namespace ZooManagement.Controllers
     public class ZooKeeperController : ControllerBase
     {
         private readonly ILogger<ZooKeeperController> _logger;
-        private readonly IZooKeepersRepo _zooKeepers;
+        private readonly IZooKeeperService _zooKeeperService;
         private readonly IAnimalService _animalService;
         
-        public ZooKeeperController(ILogger<ZooKeeperController> logger, IZooKeepersRepo zooKeepers, IAnimalService animalService)
+        public ZooKeeperController(ILogger<ZooKeeperController> logger, IZooKeeperService zooKeeperService, IAnimalService animalService)
         {
             _logger = logger;
-            _zooKeepers= zooKeepers;
+            _zooKeeperService= zooKeeperService;
             _animalService = animalService;
         }
 
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ZooKeeperResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
-        public ActionResult<ZooKeeperResponse> GetById([FromRoute] int id)
+        public ActionResult<FeedZooKeeperModel> GetById([FromRoute] int id)
         {
             try
             {
-                var zooKeeper = _zooKeepers.GetZooKeeperById(id);
-                return new ZooKeeperResponse(zooKeeper);
+                var zooKeeper = _zooKeeperService.GetZooKeeperById(id);
+                return new FeedZooKeeperModel(zooKeeper);
             }
             catch(InvalidOperationException ex)
             {
