@@ -13,7 +13,9 @@ namespace ZooManagement
         public DbSet<Enclosure> Enclosures { get; set; }
         public DbSet<ZooKeeper> ZooKeepers { get; set; }
         public DbSet<EnclosureZooKeeper> EnclosuresZooKeepers { get; set; }
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+        }
 
     }
 }

@@ -1,7 +1,6 @@
 using Newtonsoft.Json;
 using ZooManagement.Models.Database;
 using ZooManagement.Models.Request;
-using ZooManagement.Repositories;
 
 namespace ZooManagement.Models.Response
 {  
@@ -35,23 +34,26 @@ namespace ZooManagement.Models.Response
     {
         public FeedEnclosureModel(Enclosure enclosure) : base(enclosure) 
         {
+            Id = enclosure.Id;
             Name = enclosure.Name; 
             MaxNumberOfAnimals = enclosure.MaxNumberOfAnimals;
             NumberOfAnimals = enclosure.NumberOfAnimals;
             Animals = enclosure.Animals
                         .Select(e => new FeedAnimalModel(e));
         }
+        [JsonProperty(Order = 4)]
+        public new int Id { get; set; }
         
-        [JsonProperty(Order = 4)] 
+        [JsonProperty(Order = 5)] 
         public new string Name { get; set; }
 
-        [JsonProperty(Order = 5)] 
+        [JsonProperty(Order = 6)] 
         public new int MaxNumberOfAnimals { get; set; }
 
-        [JsonProperty(Order = 6)]
+        [JsonProperty(Order = 7)]
         public new int NumberOfAnimals { get; set; }
 
-        [JsonProperty(Order = 7)] 
+        [JsonProperty(Order = 8)] 
         public IEnumerable<FeedAnimalModel> Animals { get; }
     }
 
@@ -62,6 +64,9 @@ namespace ZooManagement.Models.Response
             Enclosure = new FeedEnclosureModel(enclosureZooKeeper.Enclosure);
             ZooKeeper = new FeedZooKeeperModel(enclosureZooKeeper.ZooKeeper);
         }
+
+        [JsonIgnore]
+        public int Id { get; set; }
 
         public FeedEnclosureModel Enclosure { get; }
         public FeedZooKeeperModel ZooKeeper { get; }

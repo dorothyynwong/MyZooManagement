@@ -7,7 +7,9 @@ namespace ZooManagement.Repositories
     public interface IEnclosuresZooKeepersRepo
     {
         List<ZooKeeper> GetZooKeepersByEnclosureId(int enclosureId);
-        List<Enclosure> GetEnclosuresByZooKeeperId(int zooId);
+        List<Enclosure> GetEnclosuresByZooKeeperId(int zooKeeperId);
+
+        EnclosureZooKeeper Create(int enclosureId, int zooKeeperId);
 
     }
 
@@ -52,6 +54,16 @@ namespace ZooManagement.Repositories
             return enclosures;
         }
 
+        public EnclosureZooKeeper Create(int enclosureId, int zooKeeperId)
+        {
+            var insertResult = _context.EnclosuresZooKeepers.Add(new EnclosureZooKeeper
+                                                {
+                                                    EnclosureId = enclosureId, 
+                                                    ZooKeeperId = zooKeeperId
+                                                });
+            _context.SaveChanges();
+            return insertResult.Entity;
+        }
 
     }
 }

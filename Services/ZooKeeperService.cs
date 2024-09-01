@@ -8,7 +8,7 @@ namespace ZooManagement.Services
     public interface IZooKeeperService
     {
         ZooKeeper GetZooKeeperById(int id);
-        // Animal Create(CreateAnimalRequest animal);
+        ZooKeeper Create(CreateZooKeeperRequest zooKeeper);
     }
 
     public class ZooKeeperService : IZooKeeperService
@@ -56,38 +56,31 @@ namespace ZooManagement.Services
         }
 
 
-    //     public Animal Create(CreateAnimalRequest animal)
-    //     {
-    //         Enclosure enclosure = _enclosures.GetEnclosure(animal.EnclosureId);
+        public ZooKeeper Create(CreateZooKeeperRequest zooKeeper)
+        {
+            Enclosure enclosure = _enclosures.GetEnclosure(zooKeeper.EnclosureId);
             
-    //         if (enclosure == null)
-    //         {
-    //             _logger.LogWarning($"Enclosure with ID {animal.EnclosureId} not found.");
-    //             throw new InvalidOperationException($"Enclosure with ID {animal.EnclosureId} not found.");
-    //         }
+            if (enclosure == null)
+            {
+                _logger.LogWarning($"Enclosure with ID {zooKeeper.EnclosureId} not found.");
+                throw new InvalidOperationException($"Enclosure with ID {zooKeeper.EnclosureId} not found.");
+            }
 
-    //         if (enclosure.MaxNumberOfAnimals < enclosure.NumberOfAnimals + 1)
-    //         {
-    //             _logger.LogWarning($"Cannot add animal to enclosure. Enclosure ID {animal.EnclosureId} has reached its maximum capacity.");
-    //             throw new InvalidOperationException($"Maximum number of animals in the enclosure has been reached for enclosure {animal.EnclosureId}");
-    //         }
+            ZooKeeper newZooKeeper = _zooKeepers.Create(zooKeeper);
+            if (newZooKeeper == null)
+            {
+                _logger.LogWarning($"Zoo Keeper {zooKeeper.Name} cannot be created.");
+                throw new InvalidOperationException($"Zoo Keeper {zooKeeper.Name} cannot be created.");
+            }
 
-    //         int newNumberOfAnimals = enclosure.NumberOfAnimals + 1;
-            
-    //         Enclosure updatedEnclosure = _enclosures.AddAnimalToEnclosure(animal.EnclosureId);
-    //         if (updatedEnclosure == null)
-    //         {
-    //             _logger.LogError($"Failed to update enclosure or enclosure {animal.EnclosureId} not found.");
-    //             throw new Exception($"Failed to update enclosure or enclosure {animal.EnclosureId} not found.");
-    //         }
+            EnclosureZooKeeper enclosureZooKeeper = _enclosuresZooKeepers.Create(newZooKeeper.Id, enclosure.Id);
+            if (enclosureZooKeeper == null)
+            {
+                 _logger.LogWarning($"Relationship of Zoo Keeper {newZooKeeper.Id} and Enclosure {enclosure.Id} cannot be created.");
+                throw new InvalidOperationException($"Relationship of Zoo Keeper {newZooKeeper.Id} and Enclosure {enclosure.Id} cannot be created.");               
+            }
 
-    //         if (updatedEnclosure.NumberOfAnimals != newNumberOfAnimals)
-    //         {
-    //             _logger.LogWarning($"Number of animals in enclosure ID {animal.EnclosureId} did not update as expected. Expected: {newNumberOfAnimals}, Actual: {updatedEnclosure.NumberOfAnimals}.");
-    //             throw new Exception("Number of animals in the enclosure did not update correctly.");
-    //         }
-
-    //         return _animals.Create(animal);
-    //     }
+            return newZooKeeper;
+        }
     }
 }

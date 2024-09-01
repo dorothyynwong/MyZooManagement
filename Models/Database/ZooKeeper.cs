@@ -6,6 +6,7 @@ namespace ZooManagement.Models.Database
         public string Name { get; set; }
 
         public List<Enclosure> Enclosures { get; set; } = [];
+        public List<EnclosureZooKeeper> EnclosureZooKeepers { get; set; } = [];
 
     }
 }
