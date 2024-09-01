@@ -22,12 +22,12 @@ namespace ZooManagement.Models.Response
         {
             Animals = enclosure.Animals
                         .Select(e => new FeedAnimalModel(e));
-            ZooKeepers = enclosure.ZooKeepers
-                        .Select(e => new FeedZooKeeperModel(e));
+            // ZooKeepers = enclosure.ZooKeepers
+            //             .Select(e => new FeedZooKeeperModel(e));
         }
 
         public IEnumerable<FeedAnimalModel> Animals {get;}
-        public IEnumerable<FeedZooKeeperModel> ZooKeepers {get;}
+        // public IEnumerable<FeedZooKeeperModel> ZooKeepers {get;}
     }
 
     public class FeedEnclosureZooKeeperModel : EnclosureZooKeeperResponse

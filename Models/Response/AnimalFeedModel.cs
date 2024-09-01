@@ -8,10 +8,10 @@ namespace ZooManagement.Models.Response
     {
         public FeedAnimalModel(Animal animal) : base(animal) 
         { 
-            Enclosure = new FeedEnclosureModel(animal.Enclosure);
+            // Enclosure = new FeedEnclosureModel(animal.Enclosure);
         }
 
-        public FeedEnclosureModel Enclosure { get; }
+        // public FeedEnclosureModel Enclosure { get; }
     }
 
     public class AnimalFeedModel : ListResponse<FeedAnimalModel>
