@@ -17,15 +17,19 @@ namespace ZooManagement.Services
     {
         private readonly ILogger<AnimalService> _logger;
         private readonly IAnimalsRepo _animals;
-        private readonly ISpeciesRepo _species;
         private readonly IEnclosuresRepo _enclosures;
 
-        public AnimalService(ILogger<AnimalService> logger, IAnimalsRepo animals, ISpeciesRepo species, IEnclosuresRepo enclosures)
+        private readonly IEnclosuresZooKeepersRepo _enclosuresZooKeepers;
+
+        public AnimalService(ILogger<AnimalService> logger, 
+                                IAnimalsRepo animals, 
+                                IEnclosuresRepo enclosures,
+                                IEnclosuresZooKeepersRepo enclosuresZooKeepers)
         {
             _logger = logger;
             _animals = animals;
-            _species = species;
             _enclosures = enclosures;
+            _enclosuresZooKeepers = enclosuresZooKeepers;
         }
 
         public Animal GetAnimalById(int id)
@@ -47,6 +51,12 @@ namespace ZooManagement.Services
                 _logger.LogWarning($"Animals not found for parameters {search.Filters}");
                 throw new InvalidOperationException($"Animals not found for parameters {search.Filters}");  
             }
+
+            foreach(var animal in animals)
+            {
+                animal.ZooKeepers = _enclosuresZooKeepers.GetZooKeepersByEnclosureId(animal.EnclosureId);
+            }
+
             return animals;
         }
 

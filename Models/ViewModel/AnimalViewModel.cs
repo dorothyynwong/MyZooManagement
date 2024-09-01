@@ -1,4 +1,5 @@
 using ZooManagement.Helpers;
+using ZooManagement.Models.Database;
 
 namespace ZooManagement.Models.ViewModel
 {
@@ -16,6 +17,7 @@ namespace ZooManagement.Models.ViewModel
         public DateTime DateCameToZoo { get; set; }
         public int EnclosureId { get; set; }
         public string EnclosureName { get; set; }
+        public List<ZooKeeper> ZooKeepers { get; set; }
 
     }
 }

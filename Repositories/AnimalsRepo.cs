@@ -50,7 +50,7 @@ namespace ZooManagement.Repositories
                     .Where(a => search.Name == null || a.Name == search.Name)
                     .Where(a => search.DateCameToZoo == null || a.DateCameToZoo.Date == search.DateCameToZoo)
                     .Where(a => search.EnclosureId == null || a.EnclosureId == search.EnclosureId);
-            var animals = query.Select(a => new AnimalViewModel
+            List<AnimalViewModel> animals = query.Select(a => new AnimalViewModel
                         {
                             Id = a.Id,
                             Name = a.Name,
@@ -65,7 +65,7 @@ namespace ZooManagement.Repositories
                         .ToList();
                     
 
-             var filteredAndOrderedAnimals = animals
+             IEnumerable<AnimalViewModel> filteredAndOrderedAnimals = animals
                     .Where(a => search.Age == null || a.Age == search.Age)
                     .OrderBy(a => CustomOrder.EnclosureOrder.ContainsKey(a.EnclosureName) ? CustomOrder.EnclosureOrder[a.EnclosureName] : int.MaxValue)
                     .ThenBy(a => a.Name)
@@ -74,17 +74,6 @@ namespace ZooManagement.Repositories
                     
              return filteredAndOrderedAnimals;
         }
-
-        // public IEnumerable<Animal> Search(AnimalSearchRequest search)
-        // {
-        //     return _context.Animals
-        //         .Where(a => search.SpeciesId == null || a.SpeciesId == search.SpeciesId)
-        //         .Where(a => search.EnclosureId == null || a.EnclosureId == search.EnclosureId)
-        //         .Where(a => search.Name == null || a.Name == search.Name)
-        //         .Where(a => search.DateCameToZoo == null || a.DateCameToZoo == search.DateCameToZoo)
-        //         .Skip((search.Page - 1) * search.PageSize)
-        //         .Take(search.PageSize);
-        // }
 
         public int Count(AnimalSearchRequest search)
         {
