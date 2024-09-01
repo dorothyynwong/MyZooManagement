@@ -48,50 +48,46 @@ namespace ZooManagement.Services
                 _logger.LogWarning($"Enclosures of Zoo Keeper ID {id} not found");
                 throw new InvalidOperationException($"Enclosures of Zoo Keeper ID {id} not found");
             }
-           enclosures.Select(enclosure => enclosure.Animals = _animals.GetAnimalByEnclosureId(enclosure.Id)).ToList();
-            // foreach(Enclosure enclosure in enclosures)
-            // {
-            //     enclosure.Animals = _animals.GetAnimalByEnclosureId(enclosure.Id).ToList();
-            //     enclosure.Animals.Select(a => a.Enclosure = enclosure);
-            // }
+            enclosures.Select(enclosure => enclosure.Animals = _animals.GetAnimalByEnclosureId(enclosure.Id)).ToList();
 
             zooKeeper.Enclosures = enclosures;
+            
             return zooKeeper;
         }
 
 
-        public Animal Create(CreateAnimalRequest animal)
-        {
-            Enclosure enclosure = _enclosures.GetEnclosure(animal.EnclosureId);
+    //     public Animal Create(CreateAnimalRequest animal)
+    //     {
+    //         Enclosure enclosure = _enclosures.GetEnclosure(animal.EnclosureId);
             
-            if (enclosure == null)
-            {
-                _logger.LogWarning($"Enclosure with ID {animal.EnclosureId} not found.");
-                throw new InvalidOperationException($"Enclosure with ID {animal.EnclosureId} not found.");
-            }
+    //         if (enclosure == null)
+    //         {
+    //             _logger.LogWarning($"Enclosure with ID {animal.EnclosureId} not found.");
+    //             throw new InvalidOperationException($"Enclosure with ID {animal.EnclosureId} not found.");
+    //         }
 
-            if (enclosure.MaxNumberOfAnimals < enclosure.NumberOfAnimals + 1)
-            {
-                _logger.LogWarning($"Cannot add animal to enclosure. Enclosure ID {animal.EnclosureId} has reached its maximum capacity.");
-                throw new InvalidOperationException($"Maximum number of animals in the enclosure has been reached for enclosure {animal.EnclosureId}");
-            }
+    //         if (enclosure.MaxNumberOfAnimals < enclosure.NumberOfAnimals + 1)
+    //         {
+    //             _logger.LogWarning($"Cannot add animal to enclosure. Enclosure ID {animal.EnclosureId} has reached its maximum capacity.");
+    //             throw new InvalidOperationException($"Maximum number of animals in the enclosure has been reached for enclosure {animal.EnclosureId}");
+    //         }
 
-            int newNumberOfAnimals = enclosure.NumberOfAnimals + 1;
+    //         int newNumberOfAnimals = enclosure.NumberOfAnimals + 1;
             
-            Enclosure updatedEnclosure = _enclosures.AddAnimalToEnclosure(animal.EnclosureId);
-            if (updatedEnclosure == null)
-            {
-                _logger.LogError($"Failed to update enclosure or enclosure {animal.EnclosureId} not found.");
-                throw new Exception($"Failed to update enclosure or enclosure {animal.EnclosureId} not found.");
-            }
+    //         Enclosure updatedEnclosure = _enclosures.AddAnimalToEnclosure(animal.EnclosureId);
+    //         if (updatedEnclosure == null)
+    //         {
+    //             _logger.LogError($"Failed to update enclosure or enclosure {animal.EnclosureId} not found.");
+    //             throw new Exception($"Failed to update enclosure or enclosure {animal.EnclosureId} not found.");
+    //         }
 
-            if (updatedEnclosure.NumberOfAnimals != newNumberOfAnimals)
-            {
-                _logger.LogWarning($"Number of animals in enclosure ID {animal.EnclosureId} did not update as expected. Expected: {newNumberOfAnimals}, Actual: {updatedEnclosure.NumberOfAnimals}.");
-                throw new Exception("Number of animals in the enclosure did not update correctly.");
-            }
+    //         if (updatedEnclosure.NumberOfAnimals != newNumberOfAnimals)
+    //         {
+    //             _logger.LogWarning($"Number of animals in enclosure ID {animal.EnclosureId} did not update as expected. Expected: {newNumberOfAnimals}, Actual: {updatedEnclosure.NumberOfAnimals}.");
+    //             throw new Exception("Number of animals in the enclosure did not update correctly.");
+    //         }
 
-            return _animals.Create(animal);
-        }
+    //         return _animals.Create(animal);
+    //     }
     }
 }
