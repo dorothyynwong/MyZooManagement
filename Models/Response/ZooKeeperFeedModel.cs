@@ -16,10 +16,18 @@ namespace ZooManagement.Models.Response
     {
         public FeedZooKeeperModel(ZooKeeper zooKeeper) : base(zooKeeper) 
         { 
+            Id = zooKeeper.Id;
+            Name = zooKeeper.Name;
             Enclosures = zooKeeper.Enclosures
                             .Select(e => new FeedEnclosureModel(e));
         }
         
+        [JsonProperty(Order = 1)]
+        public int Id { get; set; }
+        [JsonProperty(Order = 2)]
+        public string Name { get; set; }
+
+        [JsonProperty(Order = 3)]
         public IEnumerable<FeedEnclosureModel> Enclosures { get; }
     }
 
@@ -34,16 +42,16 @@ namespace ZooManagement.Models.Response
                         .Select(e => new FeedAnimalModel(e));
         }
         
-        [JsonProperty(Order = 1)] 
+        [JsonProperty(Order = 4)] 
         public new string Name { get; set; }
 
-        [JsonProperty(Order = 2)] 
+        [JsonProperty(Order = 5)] 
         public new int MaxNumberOfAnimals { get; set; }
 
-        [JsonProperty(Order = 3)]
+        [JsonProperty(Order = 6)]
         public new int NumberOfAnimals { get; set; }
 
-        [JsonProperty(Order = 4)] 
+        [JsonProperty(Order = 7)] 
         public IEnumerable<FeedAnimalModel> Animals { get; }
     }
 
