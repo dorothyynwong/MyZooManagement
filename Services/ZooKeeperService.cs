@@ -8,7 +8,7 @@ namespace ZooManagement.Services
     public interface IZooKeeperService
     {
         ZooKeeper GetZooKeeperById(int id);
-        Animal Create(CreateAnimalRequest animal);
+        // Animal Create(CreateAnimalRequest animal);
     }
 
     public class ZooKeeperService : IZooKeeperService
@@ -51,7 +51,7 @@ namespace ZooManagement.Services
             enclosures.Select(enclosure => enclosure.Animals = _animals.GetAnimalByEnclosureId(enclosure.Id)).ToList();
 
             zooKeeper.Enclosures = enclosures;
-            
+
             return zooKeeper;
         }
 

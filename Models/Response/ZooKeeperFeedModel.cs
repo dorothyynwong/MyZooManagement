@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using ZooManagement.Models.Database;
 using ZooManagement.Models.Request;
 using ZooManagement.Repositories;
@@ -18,7 +19,7 @@ namespace ZooManagement.Models.Response
             Enclosures = zooKeeper.Enclosures
                             .Select(e => new FeedEnclosureModel(e));
         }
-
+        
         public IEnumerable<FeedEnclosureModel> Enclosures { get; }
     }
 
@@ -26,11 +27,24 @@ namespace ZooManagement.Models.Response
     {
         public FeedEnclosureModel(Enclosure enclosure) : base(enclosure) 
         {
+            Name = enclosure.Name; 
+            MaxNumberOfAnimals = enclosure.MaxNumberOfAnimals;
+            NumberOfAnimals = enclosure.NumberOfAnimals;
             Animals = enclosure.Animals
                         .Select(e => new FeedAnimalModel(e));
         }
+        
+        [JsonProperty(Order = 1)] 
+        public new string Name { get; set; }
 
-        public IEnumerable<FeedAnimalModel> Animals {get;}
+        [JsonProperty(Order = 2)] 
+        public new int MaxNumberOfAnimals { get; set; }
+
+        [JsonProperty(Order = 3)]
+        public new int NumberOfAnimals { get; set; }
+
+        [JsonProperty(Order = 4)] 
+        public IEnumerable<FeedAnimalModel> Animals { get; }
     }
 
     public class FeedEnclosureZooKeeperModel : EnclosureZooKeeperResponse
