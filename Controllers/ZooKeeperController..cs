@@ -22,7 +22,7 @@ namespace ZooManagement.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ZooKeeperResponse))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(FeedZooKeeperModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
         public ActionResult<FeedZooKeeperModel> GetById([FromRoute] int id)
         {
@@ -40,7 +40,7 @@ namespace ZooManagement.Controllers
         }
 
         [HttpPost("create")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ZooKeeperResponse))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(FeedZooKeeperModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorResponse))]
         public IActionResult Create([FromBody] CreateZooKeeperRequest newZooKeeper)
@@ -53,8 +53,9 @@ namespace ZooManagement.Controllers
             try
             {
                 var zooKeeper = _zooKeeperService.Create(newZooKeeper);
-                var url = Url.Action("GetById", new { id = zooKeeper.Id });
-                var responseViewModel = new ZooKeeperResponse(zooKeeper);
+                var fullZooKeeper = _zooKeeperService.GetZooKeeperById(zooKeeper.Id);
+                var url = Url.Action("GetById", new { id = fullZooKeeper.Id });
+                var responseViewModel = new FeedZooKeeperModel(fullZooKeeper);
                 return Created(url, responseViewModel);
             }
             catch(InvalidOperationException ex)

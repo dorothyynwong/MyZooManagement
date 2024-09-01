@@ -73,7 +73,7 @@ namespace ZooManagement.Services
                 throw new InvalidOperationException($"Zoo Keeper {zooKeeper.Name} cannot be created.");
             }
 
-            EnclosureZooKeeper enclosureZooKeeper = _enclosuresZooKeepers.Create(newZooKeeper.Id, enclosure.Id);
+            EnclosureZooKeeper enclosureZooKeeper = _enclosuresZooKeepers.Create(enclosure.Id, newZooKeeper.Id);
             if (enclosureZooKeeper == null)
             {
                  _logger.LogWarning($"Relationship of Zoo Keeper {newZooKeeper.Id} and Enclosure {enclosure.Id} cannot be created.");
