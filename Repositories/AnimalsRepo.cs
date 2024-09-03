@@ -3,6 +3,7 @@ using ZooManagement.Helpers;
 using ZooManagement.Models.Database;
 using ZooManagement.Models.Request;
 using ZooManagement.Models.ViewModel;
+ using System.Reflection;
 
 namespace ZooManagement.Repositories
 {
@@ -22,6 +23,15 @@ namespace ZooManagement.Repositories
     public class AnimalsRepo : IAnimalsRepo
     {
         private readonly ZooManagementDbContext _context;
+
+       
+
+// Helper method to check if the property exists
+private bool IsValidProperty<T>(string propertyName)
+{
+    return typeof(T).GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance) != null;
+}
+
         public AnimalsRepo(ZooManagementDbContext context)
         {
             _context = context;
@@ -51,9 +61,8 @@ namespace ZooManagement.Repositories
                     .Where(a => search.Name == null || a.Name == search.Name)
                     .Where(a => search.DateCameToZoo == null || a.DateCameToZoo.Date == search.DateCameToZoo)
                     .Where(a => search.EnclosureId == null || a.EnclosureId == search.EnclosureId);
-                    // .OrderBy(a => search.OrderBy == null ? a.Species.Name : search.OrderBy);
 
-            if (string.IsNullOrEmpty(search.OrderBy))
+            if (string.IsNullOrEmpty(search.OrderBy) || !IsValidProperty<Animal>(search.OrderBy))
             {
                 query = query.OrderBy(a => a.Species.Name);
             }
