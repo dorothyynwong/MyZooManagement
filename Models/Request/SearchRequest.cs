@@ -16,7 +16,8 @@ namespace ZooManagement.Models.Request
         public int? EnclosureId { get; set; }
         public int? Age {get; set; }
         public DateTime? DateCameToZoo {get; set; }
-                public override string Filters
+        public string? OrderBy  {get; set;}
+        public override string Filters
         {
             get
             {

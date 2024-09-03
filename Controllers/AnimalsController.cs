@@ -11,14 +11,12 @@ namespace ZooManagement.Controllers
     public class AnimalController : ControllerBase
     {
         private readonly ILogger<AnimalController> _logger;
-        private readonly IAnimalsRepo _animals;
         private readonly IAnimalService _animalService;
         
 
-        public AnimalController(ILogger<AnimalController> logger, IAnimalsRepo animals, IAnimalService animalService)
+        public AnimalController(ILogger<AnimalController> logger,  IAnimalService animalService)
         {
             _logger = logger;
-            _animals = animals;
             _animalService = animalService;
         }
 
